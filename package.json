@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "vite --open",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "dependencies": {
+    "tailwindcss": "^3.0.23",
     "vue": "^3.2.25",
     "vue-router": "^4.0.13",
     "vuex": "^4.0.2"
