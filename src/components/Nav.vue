@@ -9,13 +9,15 @@
   </nav>
 </template>
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive } from "vue";
+
 interface navItem {
   name: string
   path: string
 }
 const navData = reactive<navItem[]>([
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/About' }
-])
+  { name: "Home", path: "/" },
+  { name: "About", path: "/About" },
+  { name: "MemoryCardGame", path: "/MemoryCardGame" },
+]);
 </script>
