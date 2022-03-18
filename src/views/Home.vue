@@ -1,12 +1,11 @@
 <template>
-  <h1 class="bg-rose-700">{{ msg }}</h1>
+  <h1 class="bg-black text-white">{{ msg }}</h1>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
 
 defineProps<{ msg: string }>();
 
-const count = ref(0);
 </script>
 
 <style scoped></style>
