@@ -1,4 +1,4 @@
 export interface memoryCard{
-    backImgPath:string,
-    frontImgPath:string,
+    upImgPath:string,
+    downImgPath:string,
 }

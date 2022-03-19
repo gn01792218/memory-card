@@ -12,8 +12,12 @@ import MemoryCardList from "@/components/MemoryCardGame/MemoryCardList.vue";
 
 const memoryCardList = reactive<memoryCard[]>([
   {
-    backImgPath: "src/assets/images/memoryCard/memoryCard-back.png",
-    frontImgPath: "src/assets/images/memoryCard/memoryCard-front.png",
+    upImgPath: "src/assets/images/memoryCard/memoryCard-back.webp",
+    downImgPath: "src/assets/images/memoryCard/memoryCard-front.webp",
   },
+  // {
+  //   backImgPath: "src/assets/images/memoryCard/memoryCard-back.webp",
+  //   frontImgPath: "src/assets/images/memoryCard/memoryCard-front.webp",
+  // },
 ]);
 </script>
