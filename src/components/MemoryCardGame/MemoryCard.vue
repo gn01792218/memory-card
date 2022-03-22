@@ -20,6 +20,7 @@ const props = defineProps<{
   cardItem: memoryCard
 }>()
 //翻牌特效:
+console.log(props.cardItem.downImgPath)
 const {checkCard,resetCard} = useMemoryCard(props.index)
 //controller
 const checkCardSataus = ref<boolean>(false)

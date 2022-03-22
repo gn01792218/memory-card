@@ -5,7 +5,7 @@ const { resolve } = require("path");
 
 export default defineConfig({
   plugins: [vue()],
-  base: "./",
+  base: "/",
   define: {
     "process.env": {},
   },
