@@ -1,9 +1,9 @@
 import { gsap } from 'gsap'
-export default function useMemoryCard() {
+export default function useMemoryCard(cardIndex:number) {
   function checkCard() {
     //翻開牌
     gsap.fromTo(
-      '#memory-card-up',
+      `#memory-card-up-${cardIndex}`,
       {
         rotateY: 180
       },
@@ -12,7 +12,7 @@ export default function useMemoryCard() {
       }
     )
     gsap.fromTo(
-      '#memory-card-down',
+      `#memory-card-down-${cardIndex}`,
       {
         rotateY: 0
       },
@@ -24,7 +24,7 @@ export default function useMemoryCard() {
   function resetCard() {
     //重置卡牌
     gsap.fromTo(
-      '#memory-card-up',
+      `#memory-card-up-${cardIndex}`,
       {
         rotateY: 0
       },
@@ -33,7 +33,7 @@ export default function useMemoryCard() {
       }
     )
     gsap.fromTo(
-      '#memory-card-down',
+      `#memory-card-down-${cardIndex}`,
       {
         rotateY: -180
       },
