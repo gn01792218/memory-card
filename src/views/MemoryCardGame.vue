@@ -17,8 +17,8 @@ const memoryCardList = reactive<memoryCard[]>([
     downImgPath: downImgUrl,
   },
   {
-    upImgPath: "/images/memoryCard/memoryCard-back.webp",
-    downImgPath: "/images/memoryCard/memoryCard-front.webp",
+    upImgPath: upImgUrl,
+    downImgPath: downImgUrl,
   },
 ]);
 </script>
