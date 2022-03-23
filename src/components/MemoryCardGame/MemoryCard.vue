@@ -1,7 +1,7 @@
 <template>
   <div
     class="w-48 h-80 relative cursor-pointer perspective-1500"
-    @click="switchStatus"
+    @click="checkCard"
   >
     <div :id="`memory-card-up-${String(index)}`" class="w-full h-full absolute backface-hidden">
       <img class="h-full" :src="cardItem.upImgPath" alt="記憶卡牌背面" />
@@ -14,20 +14,12 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { memoryCard } from '@/types/global'
-import useMemoryCard from '@/composables/memoryCard'
+import useMemoryCard from '@/composables/useMemoryCard'
+import { ghostSlayer } from '@/types/themesEnum/themesEnum'
 const props = defineProps<{
   index: number
-  cardItem: memoryCard
+  cardItem: memoryCard<ghostSlayer>
 }>()
 //翻牌特效:
-console.log(props.cardItem.downImgPath)
-const {checkCard,resetCard} = useMemoryCard(props.index)
-//controller
-const checkCardSataus = ref<boolean>(false)
-watch(checkCardSataus, () => {
-  checkCardSataus.value ? checkCard() :resetCard()
-})
-function switchStatus(){ 
-  checkCardSataus.value = !checkCardSataus.value
-}
+const {checkCard} = useMemoryCard(props.cardItem)
 </script>

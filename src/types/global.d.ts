@@ -1,4 +1,1 @@
-declare interface memoryCard{
-    upImgPath:string,
-    downImgPath:string,
-}
+declare interface memoryCard{}
