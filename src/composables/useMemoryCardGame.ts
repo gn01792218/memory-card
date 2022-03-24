@@ -1,10 +1,15 @@
 import { gsap } from 'gsap'
-import { computed, watchEffect ,watch } from 'vue'
+import { computed ,watch,reactive} from 'vue'
 import { useStore } from 'vuex'
-import { memoryCard } from '@/types/global'
-import { ghostSlayer } from '@/types/themesEnum/themesEnum'
-export default function useMemoryCardGame(cardList: memoryCard<ghostSlayer>[]) {
+import { gameThemeEnum } from '@/types/themesEnum/themesEnum'
+export default function useMemoryCardGame() {
   const store = useStore()
+  const gameTheme = computed<gameThemeEnum>(()=>{
+    return store.state.gameThemes.gameTheme
+  })
+  const memoryCardListObj = computed(()=>{
+    return store.state.gameThemes.memoryCardListObj
+  })
   const checkCardIndexArr = computed(() => {
     return store.state.memoryCard.checkCardIndexArr
   })
@@ -18,6 +23,7 @@ export default function useMemoryCardGame(cardList: memoryCard<ghostSlayer>[]) {
   watch([checkCard1,checkCard2],()=>{
     judgeMemoryCard(checkCard1.value,checkCard2.value)
   })
+  //判斷記憶卡牌輸贏
   function judgeMemoryCard(cardContent1:number,cardContent2:number){
     if(cardContent1 === 0 || cardContent2 === 0) return
     if (cardContent1 !== cardContent2) { //翻牌之後是不一樣的情況
@@ -55,7 +61,8 @@ export default function useMemoryCardGame(cardList: memoryCard<ghostSlayer>[]) {
           rotateY: 0
         }
       )
-      cardList[cardIndex].isChecked = false
+      memoryCardListObj.value[gameTheme.value][cardIndex].isChecked = false
+      // cardList[cardIndex].isChecked = false
     }, 1000)
   }
   function rightCheck(){

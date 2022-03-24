@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import gameThemes from "./gameThemes";
 import memoryCard from "./memoryCard";
 import user from './user'
 export default createStore({
@@ -6,6 +7,7 @@ export default createStore({
   mutations: {},
   actions: {},
   modules: {
+    gameThemes,
     memoryCard,
     user,
   },

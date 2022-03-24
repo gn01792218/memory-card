@@ -11,7 +11,7 @@ export const mutations = {
     state.checkCardCount++
   },
   setCheckCardCount(state:any,num:number){
-    state.checkCardCount = 0
+    state.checkCardCount = num
   },
   setCheckCard1(state:any, content: number | string) {
     state.checkCard1Content = content

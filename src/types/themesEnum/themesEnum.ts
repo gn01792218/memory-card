@@ -1,3 +1,7 @@
+export enum gameThemeEnum{
+    pokemon,
+    ghostSlayer,
+}
 export enum pokemon{
     皮卡丘,
     妙蛙種子,
