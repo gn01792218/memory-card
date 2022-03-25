@@ -7,3 +7,8 @@ export interface memoryCard<T>{
     context:T,
     isChecked:boolean,
 }
+export interface levelObj{
+    level:number,
+    cardNum:number,
+    timeCount:number,
+}

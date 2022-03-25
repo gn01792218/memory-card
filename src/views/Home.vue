@@ -12,17 +12,13 @@ import { computed, onUnmounted } from 'vue'
 import { useStore } from "vuex";
 import { gameThemeEnum } from '@/types/themesEnum/themesEnum';
 import { useRouter } from 'vue-router';
-import useGenerateGameTheme from '@/composables/useGenerateGameTheme'
-const {switchGameTheme} = useGenerateGameTheme()
 const router = useRouter()
 const store = useStore()
 function goToTheme(themeEnum:gameThemeEnum){
   //設置場控主題
   store.commit('gameThemes/setGameTheme',themeEnum)
-  //產生卡牌
-  store.commit('gameThemes/setmemoryCardListObj',switchGameTheme(themeEnum))
   //前往該路由
-  router.push('/MemoryCardGame')
+  router.push('/LevelList')
 }
 </script>
 

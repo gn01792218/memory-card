@@ -18,6 +18,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "MemoryCardGame",
     component: () => import("@/views/MemoryCardGame.vue"),
   },
+  {
+    path: "/LevelList",
+    name: "/LevelList",
+    component: () => import("@/views//LevelList.vue"),
+  },
 ];
 
 const router = createRouter({

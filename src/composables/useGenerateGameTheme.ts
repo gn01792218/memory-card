@@ -6,7 +6,7 @@ import upImgUrl from '@/assets/images/memoryCard/memoryCard-back.webp'
 import downImgUrl from '@/assets/images/memoryCard/memoryCard-front.webp'
 
 export default function useGenerateGameTheme() {
-  function switchGameTheme(gameTheme: gameThemeEnum) {
+  function GenerateCard(gameTheme: gameThemeEnum) {
     switch (gameTheme) {
       case gameThemeEnum.pokemon:
         const pokemonCardList = reactive<memoryCard<pokemon>[]>([
@@ -68,6 +68,6 @@ export default function useGenerateGameTheme() {
     }
   }
   return {
-    switchGameTheme
+    GenerateCard,
   }
 }
