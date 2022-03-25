@@ -3,13 +3,10 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { memoryCard } from '@/types/global'
 import { ghostSlayer , pokemon} from '@/types/themesEnum/themesEnum'
-export default function useMemoryCard(cardItem: memoryCard<ghostSlayer>) {
+export default function useMemoryCard<T>(cardItem: memoryCard<T>) {
   const store = useStore()
   const checkCardCount = computed(() => {
     return store.state.memoryCard.checkCardCount
-  })
-  const checkCardIndexArr = computed(() => {
-    return store.state.memoryCard.checkCardIndexArr
   })
   function checkCard() {
     if (cardItem.isChecked) return

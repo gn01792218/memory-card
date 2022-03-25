@@ -1,19 +1,11 @@
-import { computed, watch, reactive } from 'vue'
-import { useStore } from 'vuex'
+import { reactive } from 'vue'
 import { memoryCard } from '@/types/global'
 import { gameThemeEnum } from '@/types/themesEnum/themesEnum'
 import { ghostSlayer, pokemon } from '@/types/themesEnum/themesEnum'
 import upImgUrl from '@/assets/images/memoryCard/memoryCard-back.webp'
 import downImgUrl from '@/assets/images/memoryCard/memoryCard-front.webp'
+
 export default function useGenerateGameTheme() {
-  const store = useStore()
-  const gameTheme = computed<gameThemeEnum>(() => {
-    return store.state.gameThemes.gameTheme
-  })
-  watch(gameTheme, () => {
-    console.log('偵測到遊戲主題改變')
-    switchGameTheme(gameTheme.value)
-  })
   function switchGameTheme(gameTheme: gameThemeEnum) {
     switch (gameTheme) {
       case gameThemeEnum.pokemon:
@@ -43,8 +35,7 @@ export default function useGenerateGameTheme() {
             isChecked: false
           }
         ])
-        store.commit('gameThemes/setmemoryCardListObj', pokemonCardList)
-        break
+        return pokemonCardList
       case gameThemeEnum.ghostSlayer:
         //生成卡片陣列
         const ghostSlayerCardList = reactive<memoryCard<ghostSlayer>[]>([
@@ -73,8 +64,10 @@ export default function useGenerateGameTheme() {
             isChecked: false
           }
         ])
-        store.commit('gameThemes/setmemoryCardListObj', ghostSlayerCardList)
-        break
+        return ghostSlayerCardList
     }
+  }
+  return {
+    switchGameTheme
   }
 }
