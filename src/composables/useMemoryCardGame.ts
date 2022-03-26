@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import { computed ,watch,reactive} from 'vue'
 import { useStore } from 'vuex'
-import { gameThemeEnum } from '@/types/themesEnum/themesEnum'
+import { gameThemeEnum } from '@/types/Enum/enum'
 export default function useMemoryCardGame() {
   const store = useStore()
   const gameTheme = computed<gameThemeEnum>(()=>{

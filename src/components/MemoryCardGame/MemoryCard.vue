@@ -15,7 +15,7 @@
 import { ref, watch } from 'vue'
 import { memoryCard } from '@/types/global'
 import useMemoryCard from '@/composables/useMemoryCard'
-import { ghostSlayer } from '@/types/themesEnum/themesEnum'
+import { ghostSlayer } from '@/types/Enum/enum'
 const props = defineProps<{
   index: number
   cardItem: memoryCard<ghostSlayer>

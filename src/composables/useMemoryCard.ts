@@ -2,7 +2,7 @@ import { gsap } from 'gsap'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { memoryCard } from '@/types/global'
-import { ghostSlayer , pokemon} from '@/types/themesEnum/themesEnum'
+import { ghostSlayer , pokemon} from '@/types/Enum/enum'
 export default function useMemoryCard<T>(cardItem: memoryCard<T>) {
   const store = useStore()
   const checkCardCount = computed(() => {

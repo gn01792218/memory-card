@@ -1,6 +1,5 @@
 <template>
-  <nav class="w-full flex justify-between bg-black text-white ml-auto mr-auto">
-    <p class>AAAAAAAA</p>
+  <nav class="w-full flex justify-end bg-black text-white ml-auto mr-auto">
     <ul class="w-1/4 flex justify-around">
       <li class="hover:text-slate-500" v-for="(item, index) in navData" :key="index">
         <router-link :to="item.path">{{item.name}}</router-link>

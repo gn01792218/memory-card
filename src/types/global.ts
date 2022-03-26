@@ -1,4 +1,4 @@
-import {gameThemeEnum} from '@/types/themesEnum/themesEnum'
+import {gameThemeEnum} from '@/types/Enum/enum'
 export interface memoryCard<T>{
     gameTheme:gameThemeEnum,
     cardIndex:number,

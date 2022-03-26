@@ -1,7 +1,7 @@
 import { reactive } from 'vue'
 import { memoryCard } from '@/types/global'
-import { gameThemeEnum } from '@/types/themesEnum/themesEnum'
-import { ghostSlayer, pokemon } from '@/types/themesEnum/themesEnum'
+import { gameThemeEnum } from '@/types/Enum/enum'
+import { ghostSlayer, pokemon } from '@/types/Enum/enum'
 import upImgUrl from '@/assets/images/memoryCard/memoryCard-back.webp'
 import downImgUrl from '@/assets/images/memoryCard/memoryCard-front.webp'
 

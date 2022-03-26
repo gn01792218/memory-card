@@ -9,9 +9,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
+import { computed } from 'vue'
 import { useStore } from "vuex";
-import { gameThemeEnum } from '@/types/themesEnum/themesEnum';
 import { useRouter } from 'vue-router';
 import useGenerateGameTheme from '@/composables/useGenerateGameTheme'
 import useCreateLevel from '@/composables/useCreateLevel'

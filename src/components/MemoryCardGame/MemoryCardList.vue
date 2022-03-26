@@ -4,7 +4,7 @@
 <script setup lang="ts">
 import { memoryCard } from '@/types/global'
 import MemoryCard from '@/components/MemoryCardGame/MemoryCard.vue'
-import {pokemon,ghostSlayer} from '@/types/themesEnum/themesEnum'
+import {pokemon,ghostSlayer} from '@/types/Enum/themesEnum'
 defineProps<{
   cardList: memoryCard<ghostSlayer>[]
 }>()

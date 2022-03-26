@@ -1,3 +1,8 @@
+export enum gameTypeEnum{
+    other,
+    memoryCard,
+    mathGame,
+}
 export enum gameThemeEnum{
     pokemon,
     ghostSlayer,

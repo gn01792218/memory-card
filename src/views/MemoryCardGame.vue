@@ -7,8 +7,7 @@
 import { computed } from 'vue'
 import { memoryCard } from '@/types/global'
 import MemoryCardList from '@/components/MemoryCardGame/MemoryCardList.vue'
-import { gameThemeEnum } from '@/types/themesEnum/themesEnum'
-import { pokemon, ghostSlayer } from '@/types/themesEnum/themesEnum'
+import { gameThemeEnum } from '@/types/Enum/enum'
 import useMemoryCardGame from '@/composables/useMemoryCardGame'
 import { useStore } from 'vuex'
 const gameControl = useMemoryCardGame()
