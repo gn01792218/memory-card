@@ -3,15 +3,13 @@ import { memoryCard } from '@/types/global'
 import { gameThemeEnum } from '@/types/Enum/enum'
 import { ghostSlayer, pokemon } from '@/types/Enum/enum'
 import useShuffle from '../util/useShuffle'
-import upImgUrl from '@/assets/images/memoryCard/memoryCard-back.webp'
-import downImgUrl from '@/assets/images/memoryCard/memoryCard-front.webp'
 import useUtil from '../util/useUtil'
 //建議設計成輸入的數量不符合預期時，直接回傳一個預設的卡牌陣列
 export default function useGenerateMemoryCards() { //1.要幾張卡牌的參數
   const cardNumMin = 10
   const cardNumMax = 18
   const pokemonCardList = reactive<memoryCard[]>([])
-  const {random} = useUtil()
+  const {random , getAssetsFileURL} = useUtil()
   function GenerateCard(gameTheme:gameThemeEnum,cardNum:number) {
     if(cardNum%2!==0){ console.log('只能輸入偶數張卡牌數量'); return}
     if(cardNum<cardNumMin || cardNum>cardNumMax){console.log('卡牌數量只能輸入介於10~18之間的數字');return}
@@ -24,13 +22,14 @@ export default function useGenerateMemoryCards() { //1.要幾張卡牌的參數
   function pushMemoryCard(gameTheme:gameThemeEnum){
     let enumLength:number
     let randomNum
+    const cardDownImg = getAssetsFileURL(`images/memoryCard/${gameThemeEnum[gameTheme]}/cardDown.webp`)
     switch(gameTheme){
       case gameThemeEnum.pokemon:
         enumLength = Object.keys(pokemon).length/2
         randomNum = random(0,enumLength/2)
         pokemonCardList.push({gameTheme: gameThemeEnum.pokemon,
-          upImgPath: upImgUrl,
-          downImgPath: downImgUrl,
+          upImgPath: getAssetsFileURL(`images/memoryCard/${gameThemeEnum[gameTheme]}/${randomNum}.webp`),
+          downImgPath: cardDownImg,
           context: pokemon[randomNum as unknown as number],
           isChecked: false})
         break;
@@ -38,8 +37,8 @@ export default function useGenerateMemoryCards() { //1.要幾張卡牌的參數
         enumLength = Object.keys(pokemon).length/2
         randomNum = random(0,enumLength/2)
         pokemonCardList.push({gameTheme: gameThemeEnum.ghostSlayer,
-          upImgPath: upImgUrl,
-          downImgPath: downImgUrl,
+          upImgPath: getAssetsFileURL(`images/memoryCard/${gameThemeEnum[gameTheme]}/${randomNum}.webp`),
+          downImgPath: cardDownImg,
           context: ghostSlayer[randomNum as unknown as number],
           isChecked: false})
         break;

@@ -10,13 +10,5 @@ import MemoryCardList from '@/components/MemoryCardGame/MemoryCardList.vue'
 import { gameThemeEnum } from '@/types/Enum/enum'
 import useMemoryCardGame from '@/composables/memoryCard/useMemoryCardGame'
 import { useStore } from 'vuex'
-const gameControl = useMemoryCardGame()
-//以下，之後考慮由useMemoryCardGame傳出來
-const store = useStore()
-const gameTheme = computed<gameThemeEnum>(() => {
-  return store.state.gameThemes.gameTheme
-})
-const memoryCardListObj = computed(() => {
-  return store.state.gameThemes.memoryCardListObj
-})
+const { gameTheme,memoryCardListObj} = useMemoryCardGame()
 </script>

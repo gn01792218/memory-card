@@ -2,7 +2,7 @@
   <div class="w-full">
     <div class="flex flex-wrap text-white">
         <button
-            v-for="(level,index) in levelListData" :key="index"
+            v-for="(level,index) in createLevelData()" :key="index"
             @click="gotoGame(level.cardNum)"
         >第{{level.level}}關</button>
     </div>
@@ -15,7 +15,7 @@ import { useRouter } from 'vue-router';
 import useGenerateMemoryCards from '@/composables/memoryCard/useGenerateMemoryCards'
 import useCreateLevel from '@/composables/useCreateLevel'
 
-const {levelListData} = useCreateLevel()
+const {createLevelData} = useCreateLevel()
 const router = useRouter()
 const store = useStore()
 const gameThemes = computed(()=>{
@@ -26,6 +26,8 @@ function gotoGame(cardNum:number){
   const {GenerateCard} = useGenerateMemoryCards()
     //產生卡牌
   store.commit('game/setMemoryCardListObj',GenerateCard(gameThemes.value,cardNum))
+  //push到memoryCard場景
+  router.push('/MemoryCardGame')
 }
     
 

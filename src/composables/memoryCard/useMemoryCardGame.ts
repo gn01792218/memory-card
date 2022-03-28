@@ -5,10 +5,10 @@ import { gameThemeEnum } from '@/types/Enum/enum'
 export default function useMemoryCardGame() {
   const store = useStore()
   const gameTheme = computed<gameThemeEnum>(()=>{
-    return store.state.gameThemes.gameTheme
+    return store.state.game.gameTheme
   })
   const memoryCardListObj = computed(()=>{
-    return store.state.gameThemes.memoryCardListObj
+    return store.state.game.memoryCardListObj
   })
   const checkCardIndexArr = computed(() => {
     return store.state.memoryCard.checkCardIndexArr
@@ -76,5 +76,10 @@ export default function useMemoryCardGame() {
     //card1和card2內容重置
     store.commit('memoryCard/setCheckCard1',0)
     store.commit('memoryCard/setCheckCard2',0)
+  }
+  return {
+    //data
+    gameTheme,
+    memoryCardListObj,
   }
 }

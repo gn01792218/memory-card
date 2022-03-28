@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-48 h-80 relative cursor-pointer perspective-1500"
+    class="w-48 h-80 m-2 relative cursor-pointer perspective-1500"
     @click="checkCard"
   >
     <div :id="`memory-card-up-${String(index)}`" class="w-full h-full absolute backface-hidden">

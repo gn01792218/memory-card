@@ -21,11 +21,10 @@ export default function useCreateLevel() {
             timeCount: levelTimeCountList[i]
           })
         }
-        break
+        return levelListData
     }
   }
-  createLevelData()
   return {
-    levelListData
+    createLevelData,
   }
 }
