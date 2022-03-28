@@ -5,7 +5,7 @@ import { ghostSlayer, pokemon } from '@/types/Enum/enum'
 import upImgUrl from '@/assets/images/memoryCard/memoryCard-back.webp'
 import downImgUrl from '@/assets/images/memoryCard/memoryCard-front.webp'
 
-export default function useGenerateGameTheme() {
+export default function useGenerateMemoryCards() {
   function GenerateCard(gameTheme: gameThemeEnum) {
     switch (gameTheme) {
       case gameThemeEnum.pokemon:

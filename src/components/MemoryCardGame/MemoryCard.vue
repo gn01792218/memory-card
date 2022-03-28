@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { memoryCard } from '@/types/global'
-import useMemoryCard from '@/composables/useMemoryCard'
+import useMemoryCard from '@/composables/memoryCard/useMemoryCard'
 import { ghostSlayer } from '@/types/Enum/enum'
 const props = defineProps<{
   index: number

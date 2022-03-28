@@ -12,9 +12,9 @@
 import { computed } from 'vue'
 import { useStore } from "vuex";
 import { useRouter } from 'vue-router';
-import useGenerateGameTheme from '@/composables/useGenerateGameTheme'
+import useGenerateMemoryCards from '@/composables/memoryCard/useGenerateMemoryCards'
 import useCreateLevel from '@/composables/useCreateLevel'
-const {GenerateCard} = useGenerateGameTheme()
+const {GenerateCard} = useGenerateMemoryCards()
 const {levelListData} = useCreateLevel()
 const router = useRouter()
 const store = useStore()
