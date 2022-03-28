@@ -3,7 +3,7 @@
     <h1 class="text-white text-center">遊戲關卡列表</h1>
     <div class="flex flex-wrap text-white">
         <button
-            v-for="level in levelListData" :key="level"
+            v-for="(level,index) in levelListData" :key="index"
         >第{{level.level}}關</button>
     </div>
   </div>
