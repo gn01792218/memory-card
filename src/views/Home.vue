@@ -11,9 +11,10 @@ import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import gameTypeList from '@/components/Home/gameTypeList.vue'
 import gameThemesList from '@/components/Home/gameThemsList.vue'
-import useAssetsFile from '@/composables/util/useAssetsFile'
+import useUtil from '@/composables/util/useUtil'
 const store = useStore() 
-const img2 = useAssetsFile('images/memoryCard/pokemon/1.webp')
+const {getAssetsFileURL} = useUtil()
+const img2 = getAssetsFileURL('images/memoryCard/pokemon/1.webp')
 store.commit('game/loadGameTypeList')
 </script>
 

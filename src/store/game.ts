@@ -19,11 +19,10 @@ export const mutations = {
   setGameTheme(state: any, theme: gameThemeEnum) {
     state.gameTheme = theme
   },
-  setmemoryCardListObj(state: any, payLoad: any) {
+  setMemoryCardListObj(state: any, payLoad: any) {
+    console.log('裝不同類型卡牌')
     //思考payLoad如何變成memoryCard且帶不同類型
-    if (!state.memoryCardListObj[state.gameTheme]) {
-      state.memoryCardListObj[state.gameTheme] = payLoad
-    }
+    state.memoryCardListObj[state.gameTheme] = payLoad
   }
 }
 export const getters = {}

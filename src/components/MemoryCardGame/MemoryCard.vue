@@ -15,11 +15,10 @@
 import { ref, watch } from 'vue'
 import { memoryCard } from '@/types/global'
 import useMemoryCard from '@/composables/memoryCard/useMemoryCard'
-import { ghostSlayer } from '@/types/Enum/enum'
 const props = defineProps<{
   index: number
-  cardItem: memoryCard<ghostSlayer>
+  cardItem: memoryCard
 }>()
 //翻牌特效:
-const {checkCard} = useMemoryCard(props.cardItem)
+const {checkCard} = useMemoryCard(props.cardItem,props.index)
 </script>

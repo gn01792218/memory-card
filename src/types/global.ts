@@ -1,10 +1,9 @@
 import {gameThemeEnum} from '@/types/Enum/enum'
-export interface memoryCard<T>{
+export interface memoryCard{
     gameTheme:gameThemeEnum,
-    cardIndex:number,
     upImgPath:string,
     downImgPath:string,
-    context:T,
+    context:string,
     isChecked:boolean,
 }
 export interface levelObj{

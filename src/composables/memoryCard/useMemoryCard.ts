@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { memoryCard } from '@/types/global'
 import { ghostSlayer , pokemon} from '@/types/Enum/enum'
-export default function useMemoryCard<T>(cardItem: memoryCard<T>) {
+export default function useMemoryCard(cardItem: memoryCard,cardIndex:number) {
   const store = useStore()
   const checkCardCount = computed(() => {
     return store.state.memoryCard.checkCardCount
@@ -12,7 +12,7 @@ export default function useMemoryCard<T>(cardItem: memoryCard<T>) {
     if (cardItem.isChecked) return
     if (checkCardCount.value>2) return
     //標記被翻的是第幾張卡牌
-    store.commit('memoryCard/addCheckCardIndexArr', cardItem.cardIndex)
+    store.commit('memoryCard/addCheckCardIndexArr', cardIndex)
     //翻牌次數統計++
     store.commit('memoryCard/addCheckCardCount')
     //翻開牌
@@ -24,7 +24,7 @@ export default function useMemoryCard<T>(cardItem: memoryCard<T>) {
   function checkCardAniMation() {
     //翻卡的特效
     gsap.fromTo(
-      `#memory-card-up-${cardItem.cardIndex}`,
+      `#memory-card-up-${cardIndex}`,
       {
         rotateY: 180
       },
@@ -33,7 +33,7 @@ export default function useMemoryCard<T>(cardItem: memoryCard<T>) {
       }
     )
     gsap.fromTo(
-      `#memory-card-down-${cardItem.cardIndex}`,
+      `#memory-card-down-${cardIndex}`,
       {
         rotateY: 0
       },
