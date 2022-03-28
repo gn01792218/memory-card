@@ -8,15 +8,12 @@
         >
             {{gameTypeEnum[index]}}
         </button>
-        <!-- <button @click="setGameType(gameTypeEnum.other)">其他</button>
-        <button @click="setGameType(gameTypeEnum.memoryCard)">翻翻記憶卡牌</button> -->
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { gameTypeEnum } from '@/types/Enum/enum';
 import { computed } from '@vue/runtime-core';
-import { compileFunction } from 'vm';
 import { useStore } from 'vuex'
 const store = useStore()
 const gameTypes = computed(()=>{

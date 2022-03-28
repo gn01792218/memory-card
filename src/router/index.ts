@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/LevelList",
     name: "/LevelList",
-    component: () => import("@/views//LevelList.vue"),
+    component: () => import("@/views/LevelList.vue"),
   },
 ];
 

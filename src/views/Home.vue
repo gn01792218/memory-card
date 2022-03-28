@@ -1,16 +1,16 @@
 <template>
   <div class="w-full">
      <img :src="img2" alt="">
-    <gameTypeList/>
-    <gameThemesList />
+    <GameTypeList/>
+    <GameThemesList />
   </div>
 </template>
 <script setup lang="ts">
 import { computed, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import gameTypeList from '@/components/Home/gameTypeList.vue'
-import gameThemesList from '@/components/Home/gameThemsList.vue'
+import GameTypeList from '@/components/Home/GameTypeList.vue'
+import GameThemesList from '@/components/Home/GameThemsList.vue'
 import useUtil from '@/composables/util/useUtil'
 const store = useStore() 
 const {getAssetsFileURL} = useUtil()

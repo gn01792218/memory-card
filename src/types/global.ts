@@ -8,6 +8,8 @@ export interface memoryCard{
 }
 export interface levelObj{
     level:number,
+}
+export interface memoryCardLevel extends levelObj{
     cardNum:number,
     timeCount:number,
 }

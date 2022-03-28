@@ -28,7 +28,6 @@ export default function useGenerateMemoryCards() { //1.要幾張卡牌的參數
       case gameThemeEnum.pokemon:
         enumLength = Object.keys(pokemon).length/2
         randomNum = random(0,enumLength/2)
-        console.log(randomNum)
         pokemonCardList.push({gameTheme: gameThemeEnum.pokemon,
           upImgPath: upImgUrl,
           downImgPath: downImgUrl,
@@ -38,7 +37,6 @@ export default function useGenerateMemoryCards() { //1.要幾張卡牌的參數
       case gameThemeEnum.ghostSlayer:
         enumLength = Object.keys(pokemon).length/2
         randomNum = random(0,enumLength/2)
-        console.log(randomNum)
         pokemonCardList.push({gameTheme: gameThemeEnum.ghostSlayer,
           upImgPath: upImgUrl,
           downImgPath: downImgUrl,
