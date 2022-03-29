@@ -29,6 +29,7 @@ export default function useMemoryCardGame() {
     if (cardContent1 !== cardContent2) { //翻牌之後是不一樣的情況
         console.log('翻錯卡牌')
         checkCardIndexArr.value.forEach((i: number) => {
+          console.log(i)
          wrongCheck(i)
         })
         resetMemoryCard()
@@ -62,7 +63,7 @@ export default function useMemoryCardGame() {
         }
       )
       memoryCardListObj.value[gameTheme.value][cardIndex].isChecked = false
-      // cardList[cardIndex].isChecked = false
+      // console.log('重製牌組',gameTheme.value,cardIndex,memoryCardListObj.value[gameTheme.value][cardIndex].isChecked)
     }, 1000)
   }
   function rightCheck(){

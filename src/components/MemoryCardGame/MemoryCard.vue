@@ -1,7 +1,7 @@
 <template>
   <div
     class="w-48 h-80 m-2 relative cursor-pointer perspective-1500"
-    @click="checkCard"
+    @click="checkCard(cardItem,index)"
   >
     <div :id="`memory-card-up-${String(index)}`" class="w-full h-full absolute backface-hidden">
       <img class="h-full" :src="cardItem.upImgPath" alt="記憶卡牌背面" />
@@ -12,7 +12,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch } from 'vue'
 import { memoryCard } from '@/types/global'
 import useMemoryCard from '@/composables/memoryCard/useMemoryCard'
 const props = defineProps<{
@@ -20,5 +19,5 @@ const props = defineProps<{
   cardItem: memoryCard
 }>()
 //翻牌特效:
-const {checkCard} = useMemoryCard(props.cardItem,props.index)
+const {checkCard} = useMemoryCard()
 </script>

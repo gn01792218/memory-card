@@ -14,9 +14,11 @@ export const mutations = {
     state.checkCardCount = num
   },
   setCheckCard1(state:any, content: number | string) {
+    console.log('設置翻的第一張牌',content)
     state.checkCard1Content = content
   },
   setCheckCard2(state:any, content: number | string) {
+    console.log('設置翻的第二張牌',content)
     state.checkCard2Content = content
   },
   addCheckCardIndexArr(state:any,index:number){
