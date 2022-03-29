@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { memoryCard } from '@/types/global'
 export default function useMemoryCard() {
+  const localStorage = window.localStorage
   const store = useStore()
   const checkCardCount = computed(() => {
     return store.state.memoryCard.checkCardCount
