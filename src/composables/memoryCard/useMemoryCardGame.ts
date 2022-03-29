@@ -1,7 +1,8 @@
 import { gsap } from 'gsap'
-import { computed ,watch,reactive} from 'vue'
+import { computed ,watch} from 'vue'
 import { useStore } from 'vuex'
 import { gameThemeEnum } from '@/types/Enum/enum'
+import { memoryCard } from '@/types/global'
 export default function useMemoryCardGame() {
   const store = useStore()
   const gameTheme = computed<gameThemeEnum>(()=>{
@@ -19,17 +20,20 @@ export default function useMemoryCardGame() {
   const checkCard2 = computed(() => {
     return store.state.memoryCard.checkCard2Content
   })
+  const correctCardCount = computed(()=>{
+    return store.state.memoryCard.correctCardCount
+  })
   //監聽
   watch([checkCard1,checkCard2],()=>{
     judgeMemoryCard(checkCard1.value,checkCard2.value)
   })
+
   //判斷記憶卡牌輸贏
   function judgeMemoryCard(cardContent1:number,cardContent2:number){
     if(cardContent1 === 0 || cardContent2 === 0) return
     if (cardContent1 !== cardContent2) { //翻牌之後是不一樣的情況
         console.log('翻錯卡牌')
         checkCardIndexArr.value.forEach((i: number) => {
-          console.log(i)
          wrongCheck(i)
         })
         resetMemoryCard()
@@ -38,6 +42,11 @@ export default function useMemoryCardGame() {
         rightCheck()
         resetMemoryCard()
     }
+    if(correctCardCount.value === memoryCardListObj.value[gameTheme.value].length){
+      console.log('破關~你贏了!')
+      store.commit('memoryCard/setWinGame',true) //這個不一定需要
+      //解鎖下一關
+    } 
   }
   //假如翻出的兩張牌數值不同，就兩張都翻回來
   function wrongCheck(cardIndex: number) {
@@ -67,7 +76,7 @@ export default function useMemoryCardGame() {
     }, 1000)
   }
   function rightCheck(){
-    
+    store.commit('memoryCard/addCorrectCardCount') //正確翻牌統計+2
   }
   function resetMemoryCard(){
     //checkCardCount歸0

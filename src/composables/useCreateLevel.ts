@@ -17,10 +17,12 @@ export default function useCreateLevel() {
         for (let i = 0; i < 10; i++) {
           levelListData.push({
             level: i,
+            unlock:false,
             cardNum: leveCardNumList[i],
             timeCount: levelTimeCountList[i]
           })
         }
+        levelListData[0].unlock = true //預設第一關是解鎖狀態
         return levelListData
     }
   }

@@ -8,6 +8,7 @@ export interface memoryCard{
 }
 export interface levelObj{
     level:number,
+    unlock:boolean,
 }
 export interface memoryCardLevel extends levelObj{
     cardNum:number,

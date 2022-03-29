@@ -1,11 +1,12 @@
 <template>
   <div class="w-full">
-    <div class="flex flex-wrap text-white">
-        <button
-            v-for="(level,index) in createLevelData()" :key="index"
+    <ul class="flex flex-wrap text-white">
+      <li v-for="(level,index) in createLevelData()" :key="index">
+        <button v-show="level.unlock"
             @click="gotoGame(level.cardNum)"
         >第{{level.level}}關</button>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 <script setup lang="ts">
