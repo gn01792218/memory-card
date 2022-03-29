@@ -15,6 +15,9 @@ export const mutations = {
   addCorrectCardCount(state:any){
     state.correctCardCount+=2
   },
+  resetCorrectCardCount(state:any){
+    state.correctCardCount = 0
+  },
   addCheckCardCount(state:any){
     state.checkCardCount++
   },

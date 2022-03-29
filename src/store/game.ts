@@ -1,9 +1,12 @@
 import { gameTypeEnum, gameThemeEnum } from '@/types/Enum/enum'
+import { levelObj, memoryCard } from '@/types/global'
 export const state = {
   gameType: gameTypeEnum.memoryCard,
   gameTheme: null,
   gameTypeList: {},
-  memoryCardListObj: {} //翻翻記憶卡牌陣列
+  currentLevel:{}, //當前關卡物件
+  levelList:{}, //關卡物件陣列
+  memoryCardListObj: {}, //翻翻記憶卡牌陣列
 }
 export const actions = {}
 
@@ -19,9 +22,17 @@ export const mutations = {
   setGameTheme(state: any, theme: gameThemeEnum) {
     state.gameTheme = theme
   },
-  setMemoryCardListObj(state: any, payLoad: any) {
-    console.log('裝不同類型卡牌')
-    //思考payLoad如何變成memoryCard且帶不同類型
+  setCurrentLevel(state:any,level:levelObj){
+    state.currentLevel = level
+  },
+  setLevelList(state:any,payload:levelObj[]){
+    if(!state.levelList[state.gameType]) state.levelList[state.gameType] = {}
+    if(!state.levelList[state.gameType][state.gameTheme]) state.levelList[state.gameType][state.gameTheme] = payload //有此遊戲主題，就不需要創建
+  },
+  setLevelObj(state:any,payload:levelObj){
+    state.levelList
+  },
+  setMemoryCardListObj(state: any, payLoad: memoryCard[]) {
     state.memoryCardListObj[state.gameTheme] = payLoad
   }
 }

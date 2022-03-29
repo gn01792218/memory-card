@@ -1,16 +1,20 @@
 import { gsap } from 'gsap'
 import { computed ,watch} from 'vue'
 import { useStore } from 'vuex'
-import { gameThemeEnum } from '@/types/Enum/enum'
-import { memoryCard } from '@/types/global'
+import useLocalStorage from '@/composables/util/useLocalStorage'
+import useGame from '@/composables/useGame'
+import { useRouter } from 'vue-router'
 export default function useMemoryCardGame() {
+  const { setLocalItem } = useLocalStorage()
+  const { 
+    gameType,
+    gameTheme,
+    currentLevel,
+    levelList,
+    memoryCardListObj,
+  } = useGame()
+  const router = useRouter()
   const store = useStore()
-  const gameTheme = computed<gameThemeEnum>(()=>{
-    return store.state.game.gameTheme
-  })
-  const memoryCardListObj = computed(()=>{
-    return store.state.game.memoryCardListObj
-  })
   const checkCardIndexArr = computed(() => {
     return store.state.memoryCard.checkCardIndexArr
   })
@@ -45,7 +49,14 @@ export default function useMemoryCardGame() {
     if(correctCardCount.value === memoryCardListObj.value[gameTheme.value].length){
       console.log('破關~你贏了!')
       store.commit('memoryCard/setWinGame',true) //這個不一定需要
+      //翻對的統計次數歸0
+      store.commit('memoryCard/resetCorrectCardCount')
+      //將關卡物件存入
+      setLocalItem('userLevel',JSON.stringify(currentLevel.value))
       //解鎖下一關
+      levelList.value[gameType.value][gameTheme.value][currentLevel.value.level+1].unlock = true
+      //回到關卡列表
+      router.back()
     } 
   }
   //假如翻出的兩張牌數值不同，就兩張都翻回來
