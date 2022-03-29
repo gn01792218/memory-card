@@ -35,7 +35,9 @@ export default function useGenerateMemoryCards() {
     switch (gameTheme) {
       case gameThemeEnum.pokemon:
         enumLength = Object.keys(pokemon).length / 2
-        randomNum = random(0, enumLength / 2)
+        console.log(enumLength)
+        randomNum = random(0, enumLength)
+        console.log(randomNum)
         pokemonCardList.push({
           gameTheme: gameThemeEnum.pokemon,
           upImgPath: getAssetsFileURL(
@@ -48,7 +50,7 @@ export default function useGenerateMemoryCards() {
         break
       case gameThemeEnum.ghostSlayer:
         enumLength = Object.keys(pokemon).length / 2
-        randomNum = random(0, enumLength / 2)
+        randomNum = random(0, enumLength)
         pokemonCardList.push({
           gameTheme: gameThemeEnum.ghostSlayer,
           upImgPath: getAssetsFileURL(
