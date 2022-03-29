@@ -54,6 +54,8 @@ export default function useMemoryCardGame() {
       //將關卡物件存入
       setLocalItem('userLevel',JSON.stringify(currentLevel.value))
       //解鎖下一關
+      if(!levelList.value[gameType.value][gameTheme.value][currentLevel.value.level+1]) return //沒有下一局的話就返回
+      if(!levelList.value[gameType.value][gameTheme.value][currentLevel.value.level+1].unlock)
       levelList.value[gameType.value][gameTheme.value][currentLevel.value.level+1].unlock = true
       //回到關卡列表
       router.back()
