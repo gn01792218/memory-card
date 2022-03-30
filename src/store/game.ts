@@ -7,6 +7,7 @@ export const state = {
   currentLevel:{}, //當前關卡物件
   levelList:{}, //關卡物件陣列
   memoryCardListObj: {}, //翻翻記憶卡牌陣列
+  gameCounterDisplayNum:0, //遊戲計時器的顯示數字
 }
 export const actions = {}
 
@@ -34,6 +35,9 @@ export const mutations = {
   },
   setMemoryCardListObj(state: any, payLoad: memoryCard[]) {
     state.memoryCardListObj[state.gameTheme] = payLoad
+  },
+  setGameCounterDisplayNum(state:any , num:number | string){
+    state.gameCounterDisplayNum = num
   }
 }
 export const getters = {}

@@ -35,9 +35,7 @@ export default function useGenerateMemoryCards() {
     switch (gameTheme) {
       case gameThemeEnum.pokemon:
         enumLength = Object.keys(pokemon).length / 2
-        console.log(enumLength)
         randomNum = random(0, enumLength)
-        console.log(randomNum)
         pokemonCardList.push({
           gameTheme: gameThemeEnum.pokemon,
           upImgPath: getAssetsFileURL(
