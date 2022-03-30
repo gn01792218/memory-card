@@ -26,9 +26,6 @@ export default function useGame() {
   const memoryCardListObj = computed(() => {
     return gameStoreState.memoryCardListObj
   })
-  const gameCounterDisplayNum = computed(()=>{
-    return gameStoreState.gameCounterDisplayNum
-  })
   return {
     gameType,
     gameTheme,
@@ -37,6 +34,5 @@ export default function useGame() {
     currentLevel,
     levelList,
     memoryCardListObj,
-    gameCounterDisplayNum,
   }
 }

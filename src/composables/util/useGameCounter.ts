@@ -1,13 +1,15 @@
-import { ref , watch} from 'vue'
+import { ref ,reactive} from 'vue'
 import { gsap, Power1 ,Power4 } from 'gsap'
-import store from '@/store'
+interface displayNum{
+  count:string | number,
+}
+//共用的顯示資料
+export const displayNum = reactive<displayNum>({ 
+  count:0,
+})
 export default function useGameCounter() {
   const timer = ref<any | null>(null)
   const count = ref<number>(0)
-  const displayNum = ref<number | string>('00')
-  watch(displayNum,()=>{
-    store.commit('game/setGameCounterDisplayNum',displayNum.value)
-  })
   function runCountDown(countdownMaxNum: number) {
     //倒數計時
     count.value = countdownMaxNum //先設置count
@@ -28,16 +30,19 @@ export default function useGameCounter() {
         count.value -= 1
         if (count.value < 10) {
           //小於10的前面補0
-          displayNum.value = `0${count.value}`
+          displayNum.count = `0${count.value}`
         } else {
-          displayNum.value = count.value
+          displayNum.count = count.value
         }
         countAnimation()
       }
     }, 1000)
   }
   function pauseCount(){
-    
+    //記住當下的秒數
+    //清除setInterval
+    clearInterval(timer.value)
+    //幾秒後開始runCountDown
   }
   function stopCount() {
     //終止計時器
@@ -85,7 +90,6 @@ export default function useGameCounter() {
   return {
     runCountDown,
     stopCount,
-    displayNum,
     pauseCount,
   }
 }
