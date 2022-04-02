@@ -18,7 +18,6 @@ export default function useGameCounter() {
         //完成時
         //假如要呈現00，就改成<=0即可
         clearInterval(timer.value)
-        timer.value = null
         gsap.fromTo(
           //隱藏數字
           '#countNumber',
@@ -39,10 +38,10 @@ export default function useGameCounter() {
     }, 1000)
   }
   function pauseCount(){
+    console.log('暫停')
     //記住當下的秒數
     //清除setInterval
     clearInterval(timer.value)
-    //幾秒後開始runCountDown
   }
   function stopCount() {
     //終止計時器
@@ -88,6 +87,9 @@ export default function useGameCounter() {
     gsap.fromTo('#countNumber', { display: 'block' }, { ease: Power4.easeIn })
   }
   return {
+    //data
+    displayNum,
+    //methods
     runCountDown,
     stopCount,
     pauseCount,
