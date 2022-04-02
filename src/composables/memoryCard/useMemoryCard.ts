@@ -30,6 +30,7 @@ export default function useMemoryCard() {
         rotateY: 180
       },
       {
+        duration:0.5,
         rotateY: 0
       }
     )
@@ -39,6 +40,7 @@ export default function useMemoryCard() {
         rotateY: 0
       },
       {
+        duration:0.5,
         rotateY: -180
       }
     )

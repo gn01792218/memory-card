@@ -15,13 +15,14 @@ export default function useCreateLevel() {
       case gameTypeEnum.memoryCard:
         levelListData = reactive<memoryCardLevel[]>([])
         const leveCardNumList = [10, 10, 12, 12, 14, 14, 16, 16, 16, 16]
-        const levelTimeCountList = [0, 0, 0, 0, 30, 30, 30, 30, 25, 25]
+        const levelTimeCountList = [0, 0, 0, 0, 30, 30, 40, 40, 35, 35]
         for (let i = 0; i < 10; i++) {
           levelListData.push({
             gameType:gameType.value,
             gameTheme:gameTheme.value,
             level: i,
-            unlock:false,
+            // unlock:false,
+            unlock:true, //測試用
             cardNum: leveCardNumList[i],
             timeCount: levelTimeCountList[i]
           })

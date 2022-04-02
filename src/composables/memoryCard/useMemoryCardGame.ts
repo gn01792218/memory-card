@@ -1,8 +1,9 @@
 import { gsap } from 'gsap'
-import { computed ,watch} from 'vue'
+import { computed ,onMounted,watch} from 'vue'
 import { useStore } from 'vuex'
 import useLocalStorage from '@/composables/util/useLocalStorage'
 import useGame from '@/composables/useGame'
+import useGameCounter from '@/composables/util/useGameCounter';
 import { useRouter } from 'vue-router'
 export default function useMemoryCardGame() {
   const { setLocalItem } = useLocalStorage()
@@ -13,6 +14,7 @@ export default function useMemoryCardGame() {
     levelList,
     memoryCardListObj,
   } = useGame()
+  const { runCountDown , stopCount ,pauseCount ,displayNum } = useGameCounter()
   const router = useRouter()
   const store = useStore()
   const checkCardIndexArr = computed(() => {
@@ -26,6 +28,9 @@ export default function useMemoryCardGame() {
   })
   const correctCardCount = computed(()=>{
     return store.state.memoryCard.correctCardCount
+  })
+  const isWine = computed(()=>{
+    return store.state.memoryCard.winGame
   })
   //監聽
   watch([checkCard1,checkCard2],()=>{
@@ -58,13 +63,14 @@ export default function useMemoryCardGame() {
       if(!levelList.value[gameType.value][gameTheme.value][currentLevel.value.level+1].unlock)
       levelList.value[gameType.value][gameTheme.value][currentLevel.value.level+1].unlock = true
       //回到關卡列表
+      //停止計時器
+      stopCount()
       router.back()
     } 
   }
   //假如翻出的兩張牌數值不同，就兩張都翻回來
   function wrongCheck(cardIndex: number) {
     //把兩張卡翻回來
-    setTimeout(() => {
       //重置目標卡牌
       gsap.fromTo(
         `#memory-card-up-${cardIndex}`,
@@ -72,6 +78,8 @@ export default function useMemoryCardGame() {
           rotateY: 0
         },
         {
+          delay:0.5,
+          duration:0.3,
           rotateY: 180
         }
       )
@@ -81,12 +89,13 @@ export default function useMemoryCardGame() {
           rotateY: -180
         },
         {
+          delay:0.5,
+          duration:0.3,
           rotateY: 0
         }
       )
       memoryCardListObj.value[gameTheme.value][cardIndex].isChecked = false
       // console.log('重製牌組',gameTheme.value,cardIndex,memoryCardListObj.value[gameTheme.value][cardIndex].isChecked)
-    }, 1000)
   }
   function rightCheck(){
     store.commit('memoryCard/addCorrectCardCount') //正確翻牌統計+2
@@ -100,9 +109,20 @@ export default function useMemoryCardGame() {
     store.commit('memoryCard/setCheckCard1',0)
     store.commit('memoryCard/setCheckCard2',0)
   }
+  onMounted(()=>{
+    if(currentLevel.value.timeCount>=0){
+        console.log('啟動關卡計時器',currentLevel.value.timeCount)
+        runCountDown(currentLevel.value.timeCount)
+      } 
+  })
   return {
     //data
     gameTheme,
     memoryCardListObj,
+    isWine,
+    displayNum,
+    //methods
+    pauseCount,
+    runCountDown,
   }
 }

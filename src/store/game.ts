@@ -34,7 +34,7 @@ export const mutations = {
   },
   setMemoryCardListObj(state: any, payLoad: memoryCard[]) {
     state.memoryCardListObj[state.gameTheme] = payLoad
-  }
+  },
 }
 export const getters = {}
 

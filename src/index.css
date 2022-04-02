@@ -11,3 +11,27 @@
 .perspective-1500{
     perspective: 1500px;
 }
+
+/* counter的CSS，暫時借放 */
+.counter{
+    /* // overflow: hidden;
+    //要調整計時器的位置，請在這裡設置top bottom left right */
+    z-index: 1;
+}
+#countNumber{
+    top:1%;
+    left:10px;
+    font-size: 4.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+    display: none;
+}
+#loading{
+    display: none;
+    border:4px solid;
+    border-color:transparent transparent #724a0a #9b7726;
+    background-color: rgba(128, 128, 128, 0.507);
+    width:110px;
+    height:110px;
+    border-radius: 50%;
+}
