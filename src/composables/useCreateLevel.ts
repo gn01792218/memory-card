@@ -21,8 +21,8 @@ export default function useCreateLevel() {
             gameType:gameType.value,
             gameTheme:gameTheme.value,
             level: i,
-            // unlock:false,
-            unlock:true, //測試用
+            unlock:false,
+            // unlock:true, //測試用
             cardNum: leveCardNumList[i],
             timeCount: levelTimeCountList[i]
           })
