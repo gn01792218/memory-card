@@ -45,9 +45,10 @@ export default function useGenerateMemoryCards() {
           context: pokemon[randomNum as unknown as number],
           isChecked: false
         })
+        console.log(enumLength)
         break
       case gameThemeEnum.ghostSlayer:
-        enumLength = Object.keys(pokemon).length / 2
+        enumLength = Object.keys(ghostSlayer).length / 2
         randomNum = random(0, enumLength)
         pokemonCardList.push({
           gameTheme: gameThemeEnum.ghostSlayer,
@@ -58,6 +59,7 @@ export default function useGenerateMemoryCards() {
           context: ghostSlayer[randomNum as unknown as number],
           isChecked: false
         })
+        console.log(enumLength)
         break
     }
   }
