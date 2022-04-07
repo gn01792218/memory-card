@@ -14,7 +14,7 @@ import GameThemesList from '@/components/Home/GameThemsList.vue'
 import useUtil from '@/composables/util/useUtil'
 const store = useStore() 
 const {getAssetsFileURL} = useUtil()
-const img2 = getAssetsFileURL('images/memoryCard/pokemon/1.webp')
+const img2 = getAssetsFileURL('images/KidsGame-logo-white.png')
 store.commit('game/loadGameTypeList')
 </script>
 
