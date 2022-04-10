@@ -11,6 +11,7 @@ export default function useCreateLevel() {
   } = useGame()
   let levelListData
   function createLevelData() {
+    console.log('產生關卡列表')
     switch (gameType.value) {
       case gameTypeEnum.memoryCard:
         levelListData = reactive<memoryCardLevel[]>([])

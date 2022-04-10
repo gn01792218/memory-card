@@ -1,8 +1,8 @@
 <template>
   <div class="w-full">
-    <h1 class="text-white text-center">選擇遊戲主題</h1>
-    <div class="text-white flex">
-      <h1 class="mr-5 cursor-pointer"
+    <h1 class="text-white text-center text-xl">選擇遊戲主題</h1>
+    <div class="text-white flex justify-center">
+      <h1 class="mr-5 cursor-pointer text-2xl hover:text-slate-500"
         v-for="theme in gameThemeList" :key="theme"
         @click="goToTheme(theme)"
       >{{gameThemeEnum[theme]}}</h1>

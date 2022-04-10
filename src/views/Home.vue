@@ -1,6 +1,8 @@
 <template>
   <div class="w-full">
-     <img :src="img2" alt="">
+    <div class="flex justify-center">
+      <img :src="img2" alt="" width="800" height="800">
+    </div>
     <GameTypeList/>
     <GameThemesList />
   </div>
