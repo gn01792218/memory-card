@@ -4,6 +4,7 @@ import { gameThemeEnum } from '@/types/Enum/enum'
 import { ghostSlayer, pokemon } from '@/types/Enum/enum'
 import useShuffle from '../util/useShuffle'
 import useUtil from '../util/useUtil'
+import { Console } from 'console'
 //建議設計成輸入的數量不符合預期時，直接回傳一個預設的卡牌陣列
 export default function useGenerateMemoryCards() {
   //1.要幾張卡牌的參數
@@ -45,7 +46,6 @@ export default function useGenerateMemoryCards() {
           context: pokemon[randomNum as unknown as number],
           isChecked: false
         })
-        console.log(enumLength)
         break
       case gameThemeEnum.ghostSlayer:
         enumLength = Object.keys(ghostSlayer).length / 2
@@ -59,7 +59,6 @@ export default function useGenerateMemoryCards() {
           context: ghostSlayer[randomNum as unknown as number],
           isChecked: false
         })
-        console.log(enumLength)
         break
     }
   }

@@ -21,6 +21,7 @@ export default function useGame() {
     return gameStoreState.currentLevel
   })
   const levelList = computed(() => {
+    console.log(gameStoreState.levelList)
     return gameStoreState.levelList
   })
   const memoryCardListObj = computed(() => {
