@@ -1,9 +1,9 @@
 <template>
   <div class="w-full">
     <div class="flex justify-center">
-      <img :src="img2" alt="" width="800" height="800">
+      <img :src="img2" alt="" width="400" height="400">
     </div>
-    <GameTypeList/>
+    <!-- <GameTypeList/> -->
     <GameThemesList />
   </div>
 </template>

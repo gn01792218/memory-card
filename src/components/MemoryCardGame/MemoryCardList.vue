@@ -1,5 +1,5 @@
 <template>
-<div class="flex flex-wrap">
+<div class="max-w-[944px] h-auto flex flex-wrap justify-center">
   <MemoryCard v-for="(card, index) in cardList" :key="index" :cardItem="card" :index="index" />
 </div>
 </template>

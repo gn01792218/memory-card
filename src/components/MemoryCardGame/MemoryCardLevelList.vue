@@ -1,16 +1,19 @@
 <template>
-  <div class="w-full">
+  <div class="max-w-[820px] ml-auto mr-auto mt-10">
     <ul class="flex flex-wrap text-white">
       <li v-for="(level, index) in levelList[gameType][gameTheme]" :key="index">
         <div
           :class="[
             { 'cursor-pointer text-gray-50': level.unlock },
             { 'text-gray-400': !level.unlock },
-            'mr-1'
+            'text-center mr-4 mb-10 border-lime-300 border-2 p-2'
           ]"
           @click="gotoGame(level)"
         >
-          第{{ level.level }}關
+          第{{ level.level+1 }}關
+          <p>{{level.cardNum}}張卡片</p>
+          <p :class="[{'text-red-400':level.unlock}]" v-if="level.timeCount">*限時{{level.timeCount}}秒*</p>
+          <p v-if="level.timeCount<1">無時間限制</p>
         </div>
       </li>
     </ul>

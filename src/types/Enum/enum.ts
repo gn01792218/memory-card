@@ -5,7 +5,8 @@ export enum gameTypeEnum {
 }
 export enum gameThemeEnum {
   pokemon,
-  ghostSlayer
+  ghostSlayer,
+  sumikkoGurashi,
 }
 export enum pokemon {
   皮卡丘,
@@ -44,4 +45,15 @@ export enum ghostSlayer {
   甘露寺蜜璃,
   悲鳴嶼行冥,
   宇髄天元,
+}
+export enum sumikkoGurashi{
+  貓,
+  企鵝,
+  白熊,
+  炸豬扒,
+  偽蝸牛,
+  蜥蜴,
+  山,
+  偽蜥蜴,
+  炸蝦尾,
 }
