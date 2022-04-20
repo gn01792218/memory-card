@@ -4,9 +4,10 @@
       <li v-for="(level, index) in levelList[gameType][gameTheme]" :key="index">
         <div
           :class="[
-            { 'cursor-pointer text-gray-50': level.unlock },
+            { 'cursor-pointer text-gray-50 border-lime-300': level.unlock },
+            {'border-slate-600':!level.unlock},
             { 'text-gray-400': !level.unlock },
-            'text-center mr-4 mb-10 border-lime-300 border-2 p-2'
+            'text-center mr-4 mb-10 border-2 p-2'
           ]"
           @click="gotoGame(level)"
         >
