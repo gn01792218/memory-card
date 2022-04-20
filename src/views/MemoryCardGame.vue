@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <GameCounter
+<GameCounter
       @timesUp="timesUp"
      />
+  <div class="w-full h-[1040px] flex justify-center items-center">
     <MemoryCardList v-if="memoryCardListObj" :cardList="memoryCardListObj[gameTheme]" />
-    <button class="text-white" @click="pauseCount">暫停</button>
-    <button class="text-white" @click="runCountDown(Number(displayNum.count))">開始</button>
+    <!-- <button class="text-white" @click="pauseCount">暫停</button>
+    <button class="text-white" @click="runCountDown(Number(displayNum.count))">開始</button> -->
   </div>
 </template>
 <script setup lang="ts">

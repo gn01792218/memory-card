@@ -11,11 +11,13 @@ export default function useCreateLevel() {
   } = useGame()
   let levelListData
   function createLevelData() {
+    console.log('產生關卡列表')
     switch (gameType.value) {
       case gameTypeEnum.memoryCard:
         levelListData = reactive<memoryCardLevel[]>([])
-        const leveCardNumList = [10, 10, 12, 12, 14, 14, 16, 16, 16, 16]
-        const levelTimeCountList = [0, 0, 0, 0, 30, 30, 40, 40, 35, 35]
+        const leveCardNumList = [8, 8, 12, 12, 12, 12, 16, 16, 20, 20]
+        const levelTimeCountList = [0, 0, 0, 40, 35, 30, 40, 35, 40, 35]
+        // const levelTimeCountList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         for (let i = 0; i < 10; i++) {
           levelListData.push({
             gameType:gameType.value,

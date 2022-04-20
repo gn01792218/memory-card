@@ -1,14 +1,15 @@
 import { reactive } from 'vue'
 import { memoryCard } from '@/types/global'
 import { gameThemeEnum } from '@/types/Enum/enum'
-import { ghostSlayer, pokemon } from '@/types/Enum/enum'
+import { ghostSlayer, pokemon ,sumikkoGurashi} from '@/types/Enum/enum'
 import useShuffle from '../util/useShuffle'
 import useUtil from '../util/useUtil'
+import { Console } from 'console'
 //建議設計成輸入的數量不符合預期時，直接回傳一個預設的卡牌陣列
 export default function useGenerateMemoryCards() {
   //1.要幾張卡牌的參數
-  const cardNumMin = 10
-  const cardNumMax = 18
+  const cardNumMin = 8
+  const cardNumMax = 20
   const pokemonCardList = reactive<memoryCard[]>([])
   const { random, getAssetsFileURL } = useUtil()
   function GenerateCard(gameTheme: gameThemeEnum, cardNum: number) {
@@ -45,7 +46,6 @@ export default function useGenerateMemoryCards() {
           context: pokemon[randomNum as unknown as number],
           isChecked: false
         })
-        console.log(enumLength)
         break
       case gameThemeEnum.ghostSlayer:
         enumLength = Object.keys(ghostSlayer).length / 2
@@ -59,7 +59,19 @@ export default function useGenerateMemoryCards() {
           context: ghostSlayer[randomNum as unknown as number],
           isChecked: false
         })
-        console.log(enumLength)
+        break
+        case gameThemeEnum.sumikkoGurashi:
+        enumLength = Object.keys(sumikkoGurashi).length / 2
+        randomNum = random(0, enumLength)
+        pokemonCardList.push({
+          gameTheme: gameThemeEnum.sumikkoGurashi,
+          upImgPath: getAssetsFileURL(
+            `images/memoryCard/${gameThemeEnum[gameTheme]}/${randomNum}.webp`
+          ),
+          downImgPath: cardDownImg,
+          context: sumikkoGurashi[randomNum as unknown as number],
+          isChecked: false
+        })
         break
     }
   }

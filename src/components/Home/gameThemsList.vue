@@ -1,11 +1,18 @@
 <template>
   <div class="w-full">
-    <h1 class="text-white text-center">選擇遊戲主題</h1>
-    <div class="text-white flex">
-      <h1 class="mr-5 cursor-pointer"
-        v-for="theme in gameThemeList" :key="theme"
+    <h1 class="text-white text-center text-xl">選擇遊戲主題</h1>
+    <div class="text-white flex justify-center">
+      <div class="text-center cursor-pointer mr-5"
+       v-for="theme in gameThemeList" :key="theme"
         @click="goToTheme(theme)"
+      >
+        <h1 class="mr-5 text-2xl hover:text-slate-500"
+        
       >{{gameThemeEnum[theme]}}</h1>
+      <div class="w-48 h-48">
+        <img class="w-full h-full hover:scale-95" :src="getAssetsFileURL(`images/memoryCard/${gameThemeEnum[theme]}/cardDown.webp`)" alt="gameThemeEnum[theme]">
+      </div>
+      </div>
     </div>
   </div>
 </template>
@@ -14,12 +21,11 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import useGame from '@/composables/useGame'
 import { gameThemeEnum } from '@/types/Enum/enum'
-import { computed } from '@vue/runtime-core'
-
+import useUtil from '@/composables/util/useUtil'
 const router = useRouter()
 const store = useStore()
 const {gameType,gameThemeList } = useGame()
-
+const { getAssetsFileURL } = useUtil()
 function goToTheme(themeEnum: gameThemeEnum) {
   //設置場控主題
   store.commit('game/setGameTheme', themeEnum)

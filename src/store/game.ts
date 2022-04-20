@@ -14,7 +14,7 @@ export const mutations = {
   loadGameTypeList(state:any){
     state.gameTypeList[gameTypeEnum.other] = [gameThemeEnum.ghostSlayer]
     state.gameTypeList[gameTypeEnum.mathGame] = [gameThemeEnum.pokemon]
-    state.gameTypeList[gameTypeEnum.memoryCard] = [gameThemeEnum.pokemon, gameThemeEnum.ghostSlayer]
+    state.gameTypeList[gameTypeEnum.memoryCard] = [gameThemeEnum.pokemon, gameThemeEnum.ghostSlayer,gameThemeEnum.sumikkoGurashi]
   },
   setGameType(state: any, type: gameTypeEnum) {
     state.gameType = type
