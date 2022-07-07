@@ -1,14 +1,14 @@
-export enum gameTypeEnum {
+export enum GameTypeEnum {
   other,
   memoryCard,
   mathGame
 }
-export enum gameThemeEnum {
+export enum GameThemeEnum {
   pokemon,
   ghostSlayer,
   sumikkoGurashi,
 }
-export enum pokemon {
+export enum Pokemon {
   皮卡丘,
   妙蛙種子,
   噴火龍,
@@ -27,7 +27,7 @@ export enum pokemon {
   提布利姆,
   索爾加雷歐
 }
-export enum ghostSlayer {
+export enum GhostSlayer {
   竈門炭治郎,
   竈門禰豆子,
   我妻善逸,
@@ -46,7 +46,7 @@ export enum ghostSlayer {
   悲鳴嶼行冥,
   宇髄天元,
 }
-export enum sumikkoGurashi{
+export enum SumikkoGurashi{
   貓,
   企鵝,
   白熊,

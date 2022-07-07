@@ -1,2 +1,2 @@
-declare interface memoryCard{}
-declare interface levelObj{}
+declare interface MemoryCard{}
+declare interface LevelObj{}

@@ -1,5 +1,5 @@
-import { gameTypeEnum, gameThemeEnum } from '@/types/Enum/enum'
-import { levelObj, memoryCard } from '@/types/global'
+import { GameTypeEnum, GameThemeEnum } from '@/types/Enum/enum'
+import { LevelObj, MemoryCard } from '@/types/global'
 // interface State {
 //   gameType:gameTypeEnum,
 //   gameTheme:gameThemeEnum,
@@ -9,7 +9,7 @@ import { levelObj, memoryCard } from '@/types/global'
 //   memoryCardListObj:memoryCard[]
 // }
 export const state = {
-  gameType: gameTypeEnum.memoryCard,
+  gameType: GameTypeEnum.memoryCard,
   gameTheme: null,
   gameTypeList: {},
   currentLevel:{}, //當前關卡物件
@@ -20,27 +20,24 @@ export const actions = {}
 
 export const mutations = {
   loadGameTypeList(state:any){
-    state.gameTypeList[gameTypeEnum.other] = [gameThemeEnum.ghostSlayer]
-    state.gameTypeList[gameTypeEnum.mathGame] = [gameThemeEnum.pokemon]
-    state.gameTypeList[gameTypeEnum.memoryCard] = [gameThemeEnum.pokemon, gameThemeEnum.ghostSlayer,gameThemeEnum.sumikkoGurashi]
+    state.gameTypeList[GameTypeEnum.other] = [GameThemeEnum.ghostSlayer]
+    state.gameTypeList[GameTypeEnum.mathGame] = [GameThemeEnum.pokemon]
+    state.gameTypeList[GameTypeEnum.memoryCard] = [GameThemeEnum.pokemon, GameThemeEnum.ghostSlayer,GameThemeEnum.sumikkoGurashi]
   },
-  setGameType(state: any, type: gameTypeEnum) {
+  setGameType(state: any, type: GameTypeEnum) {
     state.gameType = type
   },
-  setGameTheme(state: any, theme: gameThemeEnum) {
+  setGameTheme(state: any, theme: GameThemeEnum) {
     state.gameTheme = theme
   },
-  setCurrentLevel(state:any,level:levelObj){
+  setCurrentLevel(state:any,level:LevelObj){
     state.currentLevel = level
   },
-  setLevelList(state:any,payload:levelObj[]){
+  setLevelList(state:any,payload:LevelObj[]){
     if(!state.levelList[state.gameType]) state.levelList[state.gameType] = {}
     if(!state.levelList[state.gameType][state.gameTheme]) state.levelList[state.gameType][state.gameTheme] = payload //有此遊戲主題，就不需要創建
   },
-  setLevelObj(state:any,payload:levelObj){
-    state.levelList
-  },
-  setMemoryCardListObj(state: any, payLoad: memoryCard[]) {
+  setMemoryCardListObj(state: any, payLoad: MemoryCard[]) {
     state.memoryCardListObj[state.gameTheme] = payLoad
   },
 }

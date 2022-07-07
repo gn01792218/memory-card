@@ -27,14 +27,14 @@ import { useRouter } from 'vue-router'
 import useGenerateMemoryCards from '@/composables/memoryCard/useGenerateMemoryCards'
 import useCreateLevel from '@/composables/useCreateLevel'
 import useGame from '@/composables/useGame'
-import { memoryCardLevel } from '@/types/global'
+import { MemoryCardLevel } from '@/types/global'
 
 const { createLevelData } = useCreateLevel()
 const { gameType , gameTheme , levelList} = useGame()
 const router = useRouter()
 const store = useStore()
 createLevelData()
-function gotoGame(level: memoryCardLevel) {
+function gotoGame(level: MemoryCardLevel) {
   if(!level.unlock) return
   const { GenerateCard } = useGenerateMemoryCards()
   //產生卡牌

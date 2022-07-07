@@ -1,7 +1,7 @@
 import { reactive } from 'vue'
-import { memoryCard } from '@/types/global'
-import { gameThemeEnum } from '@/types/Enum/enum'
-import { ghostSlayer, pokemon ,sumikkoGurashi} from '@/types/Enum/enum'
+import { MemoryCard } from '@/types/global'
+import { GameThemeEnum } from '@/types/Enum/enum'
+import { GhostSlayer,  Pokemon , SumikkoGurashi} from '@/types/Enum/enum'
 import useShuffle from '../util/useShuffle'
 import useUtil from '../util/useUtil'
 import { Console } from 'console'
@@ -10,9 +10,9 @@ export default function useGenerateMemoryCards() {
   //1.要幾張卡牌的參數
   const cardNumMin = 8
   const cardNumMax = 20
-  const pokemonCardList = reactive<memoryCard[]>([])
+  const pokemonCardList = reactive<MemoryCard[]>([])
   const { random, getAssetsFileURL } = useUtil()
-  function GenerateCard(gameTheme: gameThemeEnum, cardNum: number) {
+  function GenerateCard(gameTheme: GameThemeEnum, cardNum: number) {
     if (cardNum % 2 !== 0) {
       console.log('只能輸入偶數張卡牌數量')
       return
@@ -27,58 +27,58 @@ export default function useGenerateMemoryCards() {
     }
     return useShuffle(doubleArray(pokemonCardList))
   }
-  function pushMemoryCard(gameTheme: gameThemeEnum) {
+  function pushMemoryCard(gameTheme: GameThemeEnum) {
     let enumLength: number
     let randomNum
     const cardDownImg = getAssetsFileURL(
-      `images/memoryCard/${gameThemeEnum[gameTheme]}/cardDown.webp`
+      `images/memoryCard/${GameThemeEnum[gameTheme]}/cardDown.webp`
     )
     switch (gameTheme) {
-      case gameThemeEnum.pokemon:
-        enumLength = Object.keys(pokemon).length / 2
+      case GameThemeEnum.pokemon:
+        enumLength = Object.keys(Pokemon).length / 2
         randomNum = random(0, enumLength)
         pokemonCardList.push({
-          gameTheme: gameThemeEnum.pokemon,
+          gameTheme: GameThemeEnum.pokemon,
           upImgPath: getAssetsFileURL(
-            `images/memoryCard/${gameThemeEnum[gameTheme]}/${randomNum}.webp`
+            `images/memoryCard/${GameThemeEnum[gameTheme]}/${randomNum}.webp`
           ),
           downImgPath: cardDownImg,
-          context: pokemon[randomNum as unknown as number],
+          context: Pokemon[randomNum as unknown as number],
           isChecked: false
         })
         break
-      case gameThemeEnum.ghostSlayer:
-        enumLength = Object.keys(ghostSlayer).length / 2
+      case GameThemeEnum.ghostSlayer:
+        enumLength = Object.keys(GhostSlayer).length / 2
         randomNum = random(0, enumLength)
         pokemonCardList.push({
-          gameTheme: gameThemeEnum.ghostSlayer,
+          gameTheme: GameThemeEnum.ghostSlayer,
           upImgPath: getAssetsFileURL(
-            `images/memoryCard/${gameThemeEnum[gameTheme]}/${randomNum}.webp`
+            `images/memoryCard/${GameThemeEnum[gameTheme]}/${randomNum}.webp`
           ),
           downImgPath: cardDownImg,
-          context: ghostSlayer[randomNum as unknown as number],
+          context: GhostSlayer[randomNum as unknown as number],
           isChecked: false
         })
         break
-        case gameThemeEnum.sumikkoGurashi:
-        enumLength = Object.keys(sumikkoGurashi).length / 2
+        case GameThemeEnum.sumikkoGurashi:
+        enumLength = Object.keys(SumikkoGurashi).length / 2
         randomNum = random(0, enumLength)
         pokemonCardList.push({
-          gameTheme: gameThemeEnum.sumikkoGurashi,
+          gameTheme: GameThemeEnum.sumikkoGurashi,
           upImgPath: getAssetsFileURL(
-            `images/memoryCard/${gameThemeEnum[gameTheme]}/${randomNum}.webp`
+            `images/memoryCard/${GameThemeEnum[gameTheme]}/${randomNum}.webp`
           ),
           downImgPath: cardDownImg,
-          context: sumikkoGurashi[randomNum as unknown as number],
+          context: SumikkoGurashi[randomNum as unknown as number],
           isChecked: false
         })
         break
     }
   }
-  function doubleArray(arr: memoryCard[]): memoryCard[] {
+  function doubleArray(arr: MemoryCard[]): MemoryCard[] {
     let arrLength = arr.length
     for (let i = 0; i < arrLength; i++) {
-      let temp: memoryCard = {
+      let temp: MemoryCard = {
         context: arr[i].context,
         downImgPath: arr[i].downImgPath,
         gameTheme: arr[i].gameTheme,

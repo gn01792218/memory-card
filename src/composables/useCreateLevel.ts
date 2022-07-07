@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
-import { memoryCardLevel } from '@/types/global'
-import { gameTypeEnum } from '@/types/Enum/enum'
+import { MemoryCardLevel } from '@/types/global'
+import { GameTypeEnum } from '@/types/Enum/enum'
 import { useStore } from 'vuex'
 import useGame from '@/composables/useGame'
 export default function useCreateLevel() {
@@ -12,8 +12,8 @@ export default function useCreateLevel() {
   let levelListData
   function createLevelData() {
     switch (gameType.value) {
-      case gameTypeEnum.memoryCard:
-        levelListData = reactive<memoryCardLevel[]>([])
+      case GameTypeEnum.memoryCard:
+        levelListData = reactive<MemoryCardLevel[]>([])
         const leveCardNumList = [8, 8, 12, 12, 12, 12, 16, 18, 20, 20]
         const levelTimeCountList = [0, 0, 0, 40, 35, 30, 40, 40, 45, 40]
         // const levelTimeCountList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]

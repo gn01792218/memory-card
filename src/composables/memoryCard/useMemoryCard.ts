@@ -1,14 +1,14 @@
 import { gsap } from 'gsap'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { memoryCard } from '@/types/global'
+import { MemoryCard } from '@/types/global'
 export default function useMemoryCard() {
   const localStorage = window.localStorage
   const store = useStore()
   const checkCardCount = computed(() => {
     return store.state.memoryCard.checkCardCount
   })
-  function checkCard(cardItem:memoryCard,cardIndex:number) {
+  function checkCard(cardItem:MemoryCard,cardIndex:number) {
     if (cardItem.isChecked) return
     if (checkCardCount.value>2) return
     //標記被翻的是第幾張卡牌

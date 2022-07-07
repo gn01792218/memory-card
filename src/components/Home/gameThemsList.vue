@@ -8,9 +8,9 @@
       >
         <h1 class="mr-5 text-2xl hover:text-slate-500"
         
-      >{{gameThemeEnum[theme]}}</h1>
+      >{{GameThemeEnum[theme]}}</h1>
       <div class="w-48 h-48">
-        <img class="w-full h-full hover:scale-95" :src="getAssetsFileURL(`images/memoryCard/${gameThemeEnum[theme]}/cardDown.webp`)" alt="gameThemeEnum[theme]">
+        <img class="w-full h-full hover:scale-95" :src="getAssetsFileURL(`images/memoryCard/${GameThemeEnum[theme]}/cardDown.webp`)" alt="gameThemeEnum[theme]">
       </div>
       </div>
     </div>
@@ -20,13 +20,13 @@
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import useGame from '@/composables/useGame'
-import { gameThemeEnum } from '@/types/Enum/enum'
+import { GameThemeEnum } from '@/types/Enum/enum'
 import useUtil from '@/composables/util/useUtil'
 const router = useRouter()
 const store = useStore()
 const {gameType,gameThemeList } = useGame()
 const { getAssetsFileURL } = useUtil()
-function goToTheme(themeEnum: gameThemeEnum) {
+function goToTheme(themeEnum: GameThemeEnum) {
   //設置場控主題
   store.commit('game/setGameTheme', themeEnum)
   //前往該路由

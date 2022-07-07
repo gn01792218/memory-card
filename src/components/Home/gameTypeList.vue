@@ -6,19 +6,19 @@
         v-for="(type,index) in gameTypeList" :key="type"
         @click="setGameType(index)"
         >
-            {{gameTypeEnum[index]}}
+            {{GameTypeEnum[index]}}
         </button>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { gameTypeEnum } from '@/types/Enum/enum';
+import { GameTypeEnum } from '@/types/Enum/enum';
 import { computed } from '@vue/runtime-core';
 import { useStore } from 'vuex'
 import useGame from '@/composables/useGame'
 const store = useStore()
 const { gameTypeList } = useGame()
-function setGameType(type:gameTypeEnum){
+function setGameType(type:GameTypeEnum){
     store.commit('game/setGameType',type)
 }
 
