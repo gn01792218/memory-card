@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
-import { MemoryCardLevel } from '@/types/global'
-import { GameTypeEnum } from '@/types/Enum/enum'
+import { MemoryCardLevel } from '@/types/game/memoryCard/memoryCard'
+import { GameTypeEnum } from '@/types/game/game'
 import { useStore } from 'vuex'
 import useGame from '@/composables/useGame'
 export default function useCreateLevel() {

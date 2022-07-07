@@ -27,7 +27,7 @@ import { useRouter } from 'vue-router'
 import useGenerateMemoryCards from '@/composables/memoryCard/useGenerateMemoryCards'
 import useCreateLevel from '@/composables/useCreateLevel'
 import useGame from '@/composables/useGame'
-import { MemoryCardLevel } from '@/types/global'
+import { MemoryCardLevel } from '@/types/game/memoryCard/memoryCard'
 
 const { createLevelData } = useCreateLevel()
 const { gameType , gameTheme , levelList} = useGame()

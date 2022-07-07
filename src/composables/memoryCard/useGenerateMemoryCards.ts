@@ -1,10 +1,9 @@
 import { reactive } from 'vue'
-import { MemoryCard } from '@/types/global'
-import { GameThemeEnum } from '@/types/Enum/enum'
+import { MemoryCard } from '@/types/game/memoryCard/memoryCard'
+import { GameThemeEnum } from '@/types/game/game'
 import { GhostSlayer,  Pokemon , SumikkoGurashi} from '@/types/Enum/enum'
 import useShuffle from '../util/useShuffle'
 import useUtil from '../util/useUtil'
-import { Console } from 'console'
 //建議設計成輸入的數量不符合預期時，直接回傳一個預設的卡牌陣列
 export default function useGenerateMemoryCards() {
   //1.要幾張卡牌的參數

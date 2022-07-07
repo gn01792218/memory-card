@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { MemoryCard } from '@/types/global'
+import { MemoryCard } from '@/types/game/memoryCard/memoryCard'
 export default function useMemoryCard() {
   const localStorage = window.localStorage
   const store = useStore()

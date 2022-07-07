@@ -12,11 +12,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { memoryCard } from '@/types/global'
+import { MemoryCard } from '@/types/game/memoryCard/memoryCard'
 import useMemoryCard from '@/composables/memoryCard/useMemoryCard'
 const props = defineProps<{
   index: number
-  cardItem: memoryCard
+  cardItem: MemoryCard
 }>()
 //翻牌特效:
 const {checkCard} = useMemoryCard()

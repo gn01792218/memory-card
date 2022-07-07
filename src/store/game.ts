@@ -1,5 +1,5 @@
-import { GameTypeEnum, GameThemeEnum } from '@/types/Enum/enum'
-import { LevelObj, MemoryCard } from '@/types/global'
+import { LevelObj , GameTypeEnum, GameThemeEnum } from '@/types/game/game'
+import { MemoryCard } from '@/types/game/memoryCard/memoryCard'
 // interface State {
 //   gameType:gameTypeEnum,
 //   gameTheme:gameThemeEnum,

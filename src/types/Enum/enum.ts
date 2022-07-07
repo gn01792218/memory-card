@@ -1,13 +1,3 @@
-export enum GameTypeEnum {
-  other,
-  memoryCard,
-  mathGame
-}
-export enum GameThemeEnum {
-  pokemon,
-  ghostSlayer,
-  sumikkoGurashi,
-}
 export enum Pokemon {
   皮卡丘,
   妙蛙種子,

@@ -19,12 +19,12 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import useGame from '@/composables/useGame'
-import { GameThemeEnum } from '@/types/Enum/enum'
-import useUtil from '@/composables/util/useUtil'
+import useGame from '../../composables/useGame'
+import { GameThemeEnum } from '../../types/game/game'
+import useUtil from '../../composables/util/useUtil'
 const router = useRouter()
 const store = useStore()
-const {gameType,gameThemeList } = useGame()
+const { gameThemeList } = useGame()
 const { getAssetsFileURL } = useUtil()
 function goToTheme(themeEnum: GameThemeEnum) {
   //設置場控主題

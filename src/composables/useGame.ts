@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { GameThemeEnum, GameTypeEnum } from '@/types/Enum/enum'
-import { MemoryCardLevel } from '@/types/global'
+import { GameThemeEnum, GameTypeEnum } from '@/types/game/game'
+import { MemoryCardLevel } from '@/types/game/memoryCard/memoryCard'
 export default function useGame() {
   const store = useStore()
   const gameStoreState = store.state.game

@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { useStore } from 'vuex'
 import useGame from '@/composables/useGame'
-import { GameTypeEnum } from '@/types/Enum/enum'
+import { GameTypeEnum } from '@/types/game/game'
 import MemoryCardLevelList from '@/components/MemoryCardGame/MemoryCardLevelList.vue'
 const store = useStore()
 const {gameType} = useGame()

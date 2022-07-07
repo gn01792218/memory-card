@@ -1,12 +1,5 @@
-import {GameThemeEnum} from '@/types/Enum/enum'
-export interface Game{
-    gameType:number,
-    gameTheme:number,
-}
-export interface LevelObj extends Game{
-    level:number,
-    unlock:boolean,
-}
+import { LevelObj } from '@/types/game/game'
+import {GameThemeEnum} from '@/types/game/game'
 export interface MemoryCardLevel extends LevelObj{
     cardNum:number,
     timeCount:number,

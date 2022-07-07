@@ -4,7 +4,7 @@
 </div>
 </template>
 <script setup lang="ts">
-import { MemoryCard } from '@/types/global'
+import { MemoryCard } from '@/types/game/memoryCard/memoryCard'
 import MemoryCardElement from '@/components/MemoryCardGame/MemoryCard.vue'
 defineProps<{
   cardList: MemoryCard[]
