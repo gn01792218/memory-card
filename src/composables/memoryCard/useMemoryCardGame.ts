@@ -23,9 +23,6 @@ export default function useMemoryCardGame() {
   const correctCardCount = computed(() => {
     return store.state.memoryCard.correctCardCount
   })
-  const isWine = computed(() => {
-    return store.state.memoryCard.winGame
-  })
   //監聽
   watch([checkCard1, checkCard2], () => {
     judgeMemoryCard(checkCard1.value, checkCard2.value)
@@ -49,10 +46,9 @@ export default function useMemoryCardGame() {
     }
     if (correctCardCount.value === memoryCardListObj.value[gameTheme.value].length) {
       console.log('破關~你贏了!')
-      store.commit('memoryCard/setWinGame', true) //這個不一定需要
       //翻對的統計次數歸0
       resetMemoryCardGame()
-      //將關卡物件存入
+      //將關卡物件存入LocalStorage
       setLocalItem('userLevel', JSON.stringify(currentLevel.value))
       //解鎖下一關
       if (levelList.value[gameType.value][gameTheme.value][currentLevel.value.level + 1]) { //如果有下一局
@@ -124,7 +120,6 @@ export default function useMemoryCardGame() {
     //data
     gameTheme,
     memoryCardListObj,
-    isWine,
     displayNum,
     //methods
     pauseCount,

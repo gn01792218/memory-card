@@ -1,5 +1,13 @@
 import { gameTypeEnum, gameThemeEnum } from '@/types/Enum/enum'
 import { levelObj, memoryCard } from '@/types/global'
+// interface State {
+//   gameType:gameTypeEnum,
+//   gameTheme:gameThemeEnum,
+//   gameTypeList:gameTypeEnum[],
+//   currentLevel:levelObj,
+//   levelList:levelObj[],
+//   memoryCardListObj:memoryCard[]
+// }
 export const state = {
   gameType: gameTypeEnum.memoryCard,
   gameTheme: null,

@@ -1,16 +1,17 @@
-import { memoryCard } from "@/types/global"
+interface State{
+  score:number
+}
 export const state = {
   //這整個要寫localStorage
   score: 0,
-  userLevel:{}
 }
 export const actions = {}
 
 export const mutations = {
-  addScore(state: any, num: number) {
+  addScore(state: State, num: number) {
     state.score += num
   },
-  setUserScore(state: any, score: number) {
+  setUserScore(state: State, score: number) {
     state.score = score
   },
 }

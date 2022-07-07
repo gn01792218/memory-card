@@ -1,6 +1,12 @@
+interface State{
+  correctCardCount:number,
+  checkCardCount:number,
+  checkCardIndexArr:number[],
+  checkCard1Content:number | string,
+  checkCard2Content:number | string,
+}
 export const state = {
-  winGame:false, //是否破關，目前不一定需要
-  correctCardCount:0,//翻對牌的統計次書
+  correctCardCount:0,//翻對牌的統計次數
   checkCardCount:0, //翻牌的次數計算
   checkCardIndexArr:[], //存放翻開的卡牌index
   checkCard1Content:0, //翻第一張卡牌時候得到的數字
@@ -9,38 +15,32 @@ export const state = {
 export const actions = {}
 
 export const mutations = {
-  setWinGame(state:any,win:boolean){
-    state.winGame = win
-  },
-  addCorrectCardCount(state:any){
+  addCorrectCardCount(state:State){
     state.correctCardCount+=2
   },
-  resetCorrectCardCount(state:any){
+  resetCorrectCardCount(state:State){
     state.correctCardCount = 0
   },
-  addCheckCardCount(state:any){
+  addCheckCardCount(state:State){
     state.checkCardCount++
   },
-  setCheckCardCount(state:any,num:number){
+  setCheckCardCount(state:State,num:number){
     state.checkCardCount = num
   },
-  setCheckCard1(state:any, content: number | string) {
+  setCheckCard1(state:State, content: number | string) {
     // console.log('設置翻的第一張牌',content)
     state.checkCard1Content = content
   },
-  setCheckCard2(state:any, content: number | string) {
+  setCheckCard2(state:State, content: number | string) {
     // console.log('設置翻的第二張牌',content)
     state.checkCard2Content = content
   },
-  addCheckCardIndexArr(state:any,index:number){
+  addCheckCardIndexArr(state:State,index:number){
     state.checkCardIndexArr.push(index)
   },
-  reSetCheckCardIndexArr(state:any){
+  reSetCheckCardIndexArr(state:State){
     state.checkCardIndexArr = []
   },
-  shiftCheckCardIndexArr(state:any):number{
-    return state.checkCardIndexArr.shift()
-  }
 }
 export const getters = {}
 
