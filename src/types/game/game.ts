@@ -17,9 +17,9 @@ export enum GameThemeEnum {
     sumikkoGurashi,
 }
 export enum GameDifficulty {
-    SUPEREASY,
-    EASY,
-    MEDIUM,
-    HARD,
-    SUPERHARD
+    SUPEREASY="SUPEREASY",
+    EASY="EASY",
+    MEDIUM="MEDIUM",
+    HARD="HARD",
+    SUPERHARD="SUPERHARD"
 }

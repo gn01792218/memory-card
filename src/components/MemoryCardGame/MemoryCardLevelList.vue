@@ -32,7 +32,7 @@ const { createLevelData } = useCreateLevel()
 const { gameType , gameTheme , levelList} = useGame()
 const router = useRouter()
 const store = useStore()
-createLevelData()
+ createLevelData()
 function gotoGame(level: MemoryCardLevel) {
   if(!level.unlock) return
   const { GenerateCard } = useGenerateMemoryCards()

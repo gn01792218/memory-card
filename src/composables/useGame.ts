@@ -1,3 +1,4 @@
+import { toRaw } from "@vue/reactivity";
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { GameDifficulty, GameThemeEnum, GameTypeEnum } from '@/types/game/game'
@@ -16,7 +17,7 @@ export default function useGame() {
     return gameStoreState.gameTypeList
   })
   const gameDifficulty = computed<GameDifficulty>(()=>{
-    return GameDifficulty[gameStoreState.gameDifficulty]
+    return gameStoreState.gameDifficulty
   })
   const gameThemeList = computed<GameThemeEnum[]>(()=>{
     return gameStoreState.gameTypeList[gameType.value]
@@ -25,7 +26,7 @@ export default function useGame() {
     return gameStoreState.currentLevel
   })
   const levelList = computed(() => {
-    return gameStoreState.levelList
+    return toRaw(gameStoreState.levelList)
   })
   const memoryCardListObj = computed(() => {
     return gameStoreState.memoryCardListObj
@@ -40,6 +41,5 @@ export default function useGame() {
     currentLevel,
     levelList,
     memoryCardListObj,
-    
   }
 }

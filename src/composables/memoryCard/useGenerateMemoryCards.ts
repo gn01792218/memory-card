@@ -7,8 +7,8 @@ import useUtil from '../util/useUtil'
 //建議設計成輸入的數量不符合預期時，直接回傳一個預設的卡牌陣列
 export default function useGenerateMemoryCards() {
   //1.要幾張卡牌的參數
-  const cardNumMin = 8
-  const cardNumMax = 20
+  const cardNumMin = 0
+  const cardNumMax = 30
   const pokemonCardList = reactive<MemoryCard[]>([])
   const { random, getAssetsFileURL } = useUtil()
   function GenerateCard(gameTheme: GameThemeEnum, cardNum: number) {
@@ -17,7 +17,7 @@ export default function useGenerateMemoryCards() {
       return
     }
     if (cardNum < cardNumMin || cardNum > cardNumMax) {
-      console.log('卡牌數量只能輸入介於10~18之間的數字')
+      console.log('卡牌數量只能輸入介於0~30之間的數字')
       return
     }
     const enumNum = cardNum / 2 //先產生一半的卡牌後，再double確保成對

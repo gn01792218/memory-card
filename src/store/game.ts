@@ -39,10 +39,13 @@ export const mutations = {
     state.currentLevel = level
   },
   setLevelList(state:any,payload:LevelObj[]){
-    // console.log('重新裝遊戲關卡',payload)
+    console.log('重新裝遊戲關卡',payload)
     if(!state.levelList[state.gameType]) state.levelList[state.gameType] = {}
-    // if(!state.levelList[state.gameType][state.gameTheme]) 
-    state.levelList[state.gameType][state.gameTheme] = payload //有此遊戲主題，就不需要創建
+    if(!state.levelList[state.gameType][state.gameTheme])state.levelList[state.gameType][state.gameTheme] = payload //有此遊戲主題，就不需要創建
+  },
+  reloadLevelList(state:any,payload:LevelObj[]){
+    state.levelList[state.gameType] = {}
+    state.levelList[state.gameType][state.gameTheme] = payload
   },
   setMemoryCardListObj(state: any, payLoad: MemoryCard[]) {
     state.memoryCardListObj[state.gameTheme] = payLoad

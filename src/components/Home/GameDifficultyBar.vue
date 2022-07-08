@@ -3,8 +3,8 @@
         <h1 class="text-white text-center text-2xl">選擇挑戰難度</h1>
         <ul class="flex justify-center">
             <li class="text-white mr-2 cursor-pointer"
-            :class="[{'assent-text-color':gameDifficulty===index}]"
-            v-for="(difficulty,index) in getEnumValueList(GameDifficulty)" :key="difficulty"
+            :class="[{'assent-text-color':gameDifficulty===difficulty}]"
+            v-for="(difficulty) in GameDifficulty" :key="difficulty"
             @click="switchGameDifficulty(difficulty)"
             >
                 {{difficulty}}
