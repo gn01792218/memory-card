@@ -5,8 +5,12 @@ export default function useUtil (){
     function getAssetsFileURL(url:string){
         return new URL(`../../assets/${url}`,import.meta.url).href
     }
+    function getEnumValueList<T>(enumType:T){
+        return Object.keys(enumType).filter(key=>isNaN(Number(key)))
+    }
     return {
         random,
         getAssetsFileURL,
+        getEnumValueList,
     }
 }

@@ -3,15 +3,15 @@
     <div class="flex justify-center">
       <img :src="img2" alt="" width="400" height="400">
     </div>
+    <GameDifficultyBar/>
     <!-- <GameTypeList/> -->
     <GameThemesList />
   </div>
 </template>
 <script setup lang="ts">
-import { computed, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
+
 import { useStore } from 'vuex'
-import GameTypeList from '@/components/Home/GameTypeList.vue'
+import GameDifficultyBar from '@/components/Home/GameDifficultyBar.vue';
 import GameThemesList from '@/components/Home/GameThemsList.vue'
 import useUtil from '@/composables/util/useUtil'
 const store = useStore() 

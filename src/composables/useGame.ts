@@ -1,8 +1,9 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { GameThemeEnum, GameTypeEnum } from '@/types/game/game'
+import { GameDifficulty, GameThemeEnum, GameTypeEnum } from '@/types/game/game'
 import { MemoryCardLevel } from '@/types/game/memoryCard/memoryCard'
 export default function useGame() {
+  //store
   const store = useStore()
   const gameStoreState = store.state.game
   const gameType = computed<GameTypeEnum>(() => {
@@ -14,6 +15,9 @@ export default function useGame() {
   const gameTypeList = computed<GameTypeEnum[]>(()=>{
     return gameStoreState.gameTypeList
   })
+  const gameDifficulty = computed<GameDifficulty>(()=>{
+    return GameDifficulty[gameStoreState.gameDifficulty]
+  })
   const gameThemeList = computed<GameThemeEnum[]>(()=>{
     return gameStoreState.gameTypeList[gameType.value]
   })
@@ -21,19 +25,21 @@ export default function useGame() {
     return gameStoreState.currentLevel
   })
   const levelList = computed(() => {
-    console.log(gameStoreState.levelList)
     return gameStoreState.levelList
   })
   const memoryCardListObj = computed(() => {
     return gameStoreState.memoryCardListObj
   })
   return {
+    //data
     gameType,
     gameTheme,
+    gameDifficulty,
     gameTypeList,
     gameThemeList,
     currentLevel,
     levelList,
     memoryCardListObj,
+    
   }
 }

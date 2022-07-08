@@ -1,16 +1,18 @@
-import { LevelObj , GameTypeEnum, GameThemeEnum } from '@/types/game/game'
+import { LevelObj , GameTypeEnum, GameThemeEnum , GameDifficulty } from '@/types/game/game'
 import { MemoryCard } from '@/types/game/memoryCard/memoryCard'
-// interface State {
-//   gameType:gameTypeEnum,
-//   gameTheme:gameThemeEnum,
-//   gameTypeList:gameTypeEnum[],
-//   currentLevel:levelObj,
-//   levelList:levelObj[],
-//   memoryCardListObj:memoryCard[]
-// }
+interface State {
+  gameType:GameTypeEnum,
+  gameTheme:GameThemeEnum,
+  gameDifficulty:GameDifficulty,
+  gameTypeList:GameTypeEnum[],
+  currentLevel:LevelObj,
+  levelList:LevelObj[],
+  memoryCardListObj:MemoryCard[]
+}
 export const state = {
   gameType: GameTypeEnum.memoryCard,
   gameTheme: null,
+  gameDifficulty:GameDifficulty[GameDifficulty.SUPEREASY],
   gameTypeList: {},
   currentLevel:{}, //當前關卡物件
   levelList:{}, //關卡物件陣列
@@ -30,12 +32,17 @@ export const mutations = {
   setGameTheme(state: any, theme: GameThemeEnum) {
     state.gameTheme = theme
   },
+  setGameDifficulty(state:any,difficulty: GameDifficulty){
+    state.gameDifficulty = difficulty
+  },
   setCurrentLevel(state:any,level:LevelObj){
     state.currentLevel = level
   },
   setLevelList(state:any,payload:LevelObj[]){
+    // console.log('重新裝遊戲關卡',payload)
     if(!state.levelList[state.gameType]) state.levelList[state.gameType] = {}
-    if(!state.levelList[state.gameType][state.gameTheme]) state.levelList[state.gameType][state.gameTheme] = payload //有此遊戲主題，就不需要創建
+    // if(!state.levelList[state.gameType][state.gameTheme]) 
+    state.levelList[state.gameType][state.gameTheme] = payload //有此遊戲主題，就不需要創建
   },
   setMemoryCardListObj(state: any, payLoad: MemoryCard[]) {
     state.memoryCardListObj[state.gameTheme] = payLoad

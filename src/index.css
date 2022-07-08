@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design System */
+/* color */
+.assent-text-color{
+    @apply text-yellow-400;
+}
+
 /* 特殊CSS Util */
 .backface-hidden{
     backface-visibility: hidden;
