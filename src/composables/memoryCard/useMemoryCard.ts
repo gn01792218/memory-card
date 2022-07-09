@@ -6,7 +6,7 @@ import { MemoryCard } from '@/types/game/memoryCard/memoryCard'
 export default function useMemoryCard() {
   const localStorage = window.localStorage
   //其他composable
-  const { rePlayAudio } = useAudio()
+  const { rePlayAudio ,turnSoundEle} = useAudio()
   //store
   const store = useStore()
   const memoryCard = store.state.memoryCard
@@ -24,7 +24,7 @@ export default function useMemoryCard() {
     cardItem.isChecked = true
     // console.log('設置卡牌被翻過了',cardIndex,cardItem)
     //依據現在翻到第幾張牌，設置記憶卡牌的內容
-    rePlayAudio(document.getElementById('memory-card-turn') as HTMLAudioElement) //播放音效
+    rePlayAudio(turnSoundEle.value) //播放音效
     store.commit(`memoryCard/setCheckCard${checkCardCount.value}`, cardItem.context)
     checkCardAniMation(cardIndex)
   }

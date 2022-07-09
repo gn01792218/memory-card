@@ -4,13 +4,32 @@ import { useStore } from "vuex"
 export default function useAudio(){
     //store
     const store = useStore()
+    const gameSound = store.state.gameSound
     const gameSoundControlEle = computed<HTMLElement>(()=>{
-        return store.state.gameSound.audioConTrolEle
+        return gameSound.audioConTrolEle
+    })
+    const turnSoundEle = computed<HTMLAudioElement>(()=>{
+        return gameSound.turnSoundEle
+    })
+    const matchSoundEle = computed<HTMLAudioElement>(()=>{
+        return gameSound.matchSoundEle
+    })
+    const passSoundEle = computed<HTMLAudioElement>(()=>{
+        return gameSound.passSoundEle
     })
     //方法
     //所有方法都必須在mounted後才可以使用
     function loadAudioControlElement(ele:HTMLElement){
         store.commit('gameSound/getaudioControlEle',ele)
+    }
+    function loadTurnSoundEle(ele:HTMLAudioElement){
+        store.commit('gameSound/getTurnSoundEle',ele)
+    }
+    function loadMatchSoundEle(ele:HTMLAudioElement){
+        store.commit('gameSound/getMatchSoundEle',ele)
+    }
+    function loadPassSoundEle(ele:HTMLAudioElement){
+        store.commit('gameSound/getPassSoundEle',ele)
     }
     function playAudio(audio:HTMLAudioElement){
         audio.play()
@@ -51,8 +70,14 @@ export default function useAudio(){
     return {
         //data
         gameSoundControlEle,
+        turnSoundEle,
+        matchSoundEle,
+        passSoundEle,
         //methods
         loadAudioControlElement,
+        loadTurnSoundEle,
+        loadMatchSoundEle,
+        loadPassSoundEle,
         playAudio,
         pauseAudio,
         stopAudio,

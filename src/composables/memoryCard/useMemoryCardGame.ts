@@ -8,7 +8,7 @@ import useGameCounter from '@/composables/util/useGameCounter'
 import { useRouter } from 'vue-router'
 export default function useMemoryCardGame() {
   //其他composable
-  const { rePlayAudio } = useAudio()
+  const { rePlayAudio, stopAudio ,passSoundEle ,matchSoundEle} = useAudio()
   const { setLocalItem } = useLocalStorage()
   const { gameType, gameTheme, currentLevel, levelList, memoryCardListObj } = useGame()
   const { runCountDown, stopCount, pauseCount, displayNum } = useGameCounter()
@@ -46,13 +46,14 @@ export default function useMemoryCardGame() {
     } else {
       //翻牌之後是一樣的情況
       console.log('翻對牌，重置count')
-      rePlayAudio(document.getElementById('memory-card-match') as HTMLAudioElement)
+      rePlayAudio(matchSoundEle.value)
       rightCheck()
       resetMemoryCard()
     }
     if (correctCardCount.value === memoryCardListObj.value[gameTheme.value].length) {
       console.log('破關~你贏了!')
-      rePlayAudio(document.getElementById('memory-card-pass') as HTMLAudioElement)
+      stopAudio(matchSoundEle.value)
+      rePlayAudio(passSoundEle.value)
       //翻對的統計次數歸0
       resetMemoryCardGame()
       //將關卡物件存入LocalStorage
