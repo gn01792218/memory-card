@@ -9,7 +9,9 @@
         <h1 class="mr-5 text-2xl hover:text-slate-500"
         
       >{{GameThemeEnum[theme]}}</h1>
-      <div class="w-48 h-48">
+      <div class="w-48 h-48"
+      @mouseover="rePlayAudio(hoverSoundEle)"
+      >
         <img class="w-full h-full hover:scale-95" :src="getAssetsFileURL(`images/memoryCard/${GameThemeEnum[theme]}/cardDown.webp`)" alt="gameThemeEnum[theme]">
       </div>
       </div>
@@ -22,10 +24,12 @@ import { useRouter } from 'vue-router'
 import useGame from '../../composables/useGame'
 import { GameThemeEnum } from '../../types/game/game'
 import useUtil from '../../composables/util/useUtil'
+import useAudio from '@/composables/util/useAudio'
 const router = useRouter()
 const store = useStore()
 const { gameThemeList } = useGame()
 const { getAssetsFileURL } = useUtil()
+const { rePlayAudio,hoverSoundEle } = useAudio()
 function goToTheme(themeEnum: GameThemeEnum) {
   //設置場控主題
   store.commit('game/setGameTheme', themeEnum)

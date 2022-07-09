@@ -8,6 +8,9 @@ export default function useAudio(){
     const gameSoundControlEle = computed<HTMLElement>(()=>{
         return gameSound.audioConTrolEle
     })
+    const hoverSoundEle = computed<HTMLAudioElement>(()=>{
+        return gameSound.hoverSoundEle
+    })
     const turnSoundEle = computed<HTMLAudioElement>(()=>{
         return gameSound.turnSoundEle
     })
@@ -21,6 +24,9 @@ export default function useAudio(){
     //所有方法都必須在mounted後才可以使用
     function loadAudioControlElement(ele:HTMLElement){
         store.commit('gameSound/getaudioControlEle',ele)
+    }
+    function loadHoverSoundEle(ele:HTMLElement){
+        store.commit('gameSound/getHoverSoundEle',ele)
     }
     function loadTurnSoundEle(ele:HTMLAudioElement){
         store.commit('gameSound/getTurnSoundEle',ele)
@@ -70,11 +76,13 @@ export default function useAudio(){
     return {
         //data
         gameSoundControlEle,
+        hoverSoundEle,
         turnSoundEle,
         matchSoundEle,
         passSoundEle,
         //methods
         loadAudioControlElement,
+        loadHoverSoundEle,
         loadTurnSoundEle,
         loadMatchSoundEle,
         loadPassSoundEle,

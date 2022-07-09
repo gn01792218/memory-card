@@ -1,5 +1,8 @@
 <template>
   <div id="audio-control">
+    <audio id="hover" preload="">
+      <source src="@/assets/audio/hover.wav" type="audio/mp3" />
+    </audio>
     <audio id="memory-card-turn" preload="true">
       <source src="@/assets/audio/turn.wav" type="audio/mp3" />
     </audio>
@@ -14,8 +17,9 @@
 <script setup lang="ts">
 import { onMounted } from '@vue/runtime-core'
 import useAudio from '../../composables/util/useAudio'
-const { loadAudioControlElement ,loadTurnSoundEle,loadMatchSoundEle ,loadPassSoundEle} = useAudio()
+const { loadAudioControlElement ,loadTurnSoundEle,loadMatchSoundEle ,loadPassSoundEle , loadHoverSoundEle} = useAudio()
 onMounted(()=>{
+  loadHoverSoundEle(document.getElementById('hover') as HTMLAudioElement)
   loadAudioControlElement(document.getElementById('audio-control') as HTMLElement)
   loadTurnSoundEle(document.getElementById('memory-card-turn') as HTMLAudioElement)
   loadMatchSoundEle(document.getElementById('memory-card-match') as HTMLAudioElement)

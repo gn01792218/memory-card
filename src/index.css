@@ -7,7 +7,10 @@
 .assent-text-color{
     @apply text-yellow-400;
 }
-
+/* nav */
+.active {
+    @apply assent-text-color border-2
+}
 /* 特殊CSS Util */
 .backface-hidden{
     backface-visibility: hidden;

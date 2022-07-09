@@ -13,7 +13,7 @@ interface State {
 export const state = {
   gameType: GameTypeEnum.memoryCard,
   gameTheme: null,
-  gameDifficulty:GameDifficulty[GameDifficulty.SUPEREASY],
+  gameDifficulty:GameDifficulty.SUPEREASY,
   gameTypeList: {},
   currentLevel:{}, //當前關卡物件
   levelList:{}, //關卡物件陣列

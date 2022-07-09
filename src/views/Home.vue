@@ -12,7 +12,7 @@
 
 import { useStore } from 'vuex'
 import GameDifficultyBar from '@/components/Home/GameDifficultyBar.vue';
-import GameThemesList from '@/components/Home/GameThemsList.vue'
+import GameThemesList from '@/components/Home/gameThemsList.vue'
 import useUtil from '@/composables/util/useUtil'
 const store = useStore() 
 const {getAssetsFileURL} = useUtil()

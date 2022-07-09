@@ -1,5 +1,6 @@
 interface State{
     audioConTrolEle:HTMLElement | null,
+    hoverSoundEle:HTMLAudioElement | null,
     turnSoundEle:HTMLAudioElement | null,
     matchSoundEle:HTMLAudioElement | null,
     passSoundEle:HTMLAudioElement | null,
@@ -7,6 +8,7 @@ interface State{
   export const state:State = {
     //這整個要寫localStorage
     audioConTrolEle:null,
+    hoverSoundEle:null,
     turnSoundEle:null,
     matchSoundEle:null,
     passSoundEle:null,
@@ -16,6 +18,9 @@ interface State{
   export const mutations = {
     getaudioControlEle(state:State,payLoad:HTMLElement){
         if(!state.audioConTrolEle)state.audioConTrolEle = payLoad
+    },
+    getHoverSoundEle(state:State,payLoad:HTMLAudioElement){
+      if(!state.hoverSoundEle) state.hoverSoundEle = payLoad
     },
     getTurnSoundEle(state:State,payLoad:HTMLAudioElement){
       if(!state.turnSoundEle) state.turnSoundEle = payLoad
