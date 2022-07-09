@@ -31,6 +31,9 @@ export default function useGame() {
   const memoryCardListObj = computed(() => {
     return gameStoreState.memoryCardListObj
   })
+  const gameSoundMouted = computed<boolean>(()=>{
+    return gameStoreState.gameSoundMouted
+  })
   return {
     //data
     gameType,
@@ -41,5 +44,6 @@ export default function useGame() {
     currentLevel,
     levelList,
     memoryCardListObj,
+    gameSoundMouted,
   }
 }

@@ -7,7 +7,8 @@ interface State {
   gameTypeList:GameTypeEnum[],
   currentLevel:LevelObj,
   levelList:LevelObj[],
-  memoryCardListObj:MemoryCard[]
+  memoryCardListObj:MemoryCard[],
+  gameSoundMouted:boolean,
 }
 export const state = {
   gameType: GameTypeEnum.memoryCard,
@@ -50,6 +51,9 @@ export const mutations = {
   setMemoryCardListObj(state: any, payLoad: MemoryCard[]) {
     state.memoryCardListObj[state.gameTheme] = payLoad
   },
+  setGameSoundMouted(state:State,payload:boolean){
+    state.gameSoundMouted = payload
+  }
 }
 export const getters = {}
 

@@ -1,15 +1,20 @@
 import { gsap } from 'gsap'
 import { computed, onMounted, watch } from 'vue'
 import { useStore } from 'vuex'
+import useAudio from '@/composables/util/useAudio'
 import useLocalStorage from '@/composables/util/useLocalStorage'
 import useGame from '@/composables/useGame'
 import useGameCounter from '@/composables/util/useGameCounter'
 import { useRouter } from 'vue-router'
 export default function useMemoryCardGame() {
+  //其他composable
+  const { rePlayAudio } = useAudio()
   const { setLocalItem } = useLocalStorage()
   const { gameType, gameTheme, currentLevel, levelList, memoryCardListObj } = useGame()
   const { runCountDown, stopCount, pauseCount, displayNum } = useGameCounter()
+  //router
   const router = useRouter()
+  //store
   const store = useStore()
   const checkCardIndexArr = computed(() => {
     return store.state.memoryCard.checkCardIndexArr
@@ -41,11 +46,13 @@ export default function useMemoryCardGame() {
     } else {
       //翻牌之後是一樣的情況
       console.log('翻對牌，重置count')
+      rePlayAudio(document.getElementById('memory-card-match') as HTMLAudioElement)
       rightCheck()
       resetMemoryCard()
     }
     if (correctCardCount.value === memoryCardListObj.value[gameTheme.value].length) {
       console.log('破關~你贏了!')
+      rePlayAudio(document.getElementById('memory-card-pass') as HTMLAudioElement)
       //翻對的統計次數歸0
       resetMemoryCardGame()
       //將關卡物件存入LocalStorage
@@ -57,7 +64,9 @@ export default function useMemoryCardGame() {
         }
       }
       //回到關卡列表
-      backToLevel()
+      setTimeout(()=>{
+        backToLevel()
+      },2000)
     }
   }
   //假如翻出的兩張牌數值不同，就兩張都翻回來
