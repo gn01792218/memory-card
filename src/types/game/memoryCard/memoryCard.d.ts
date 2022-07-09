@@ -1,2 +1,2 @@
-declare interface MemoryCardLevel extends LevelObj{}
+declare interface MemoryCardLevel{}
 interface MemoryCard{}

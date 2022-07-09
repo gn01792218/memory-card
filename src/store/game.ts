@@ -26,16 +26,16 @@ export const mutations = {
     state.gameTypeList[GameTypeEnum.mathGame] = [GameThemeEnum.pokemon]
     state.gameTypeList[GameTypeEnum.memoryCard] = [GameThemeEnum.pokemon, GameThemeEnum.ghostSlayer,GameThemeEnum.sumikkoGurashi]
   },
-  setGameType(state: any, type: GameTypeEnum) {
+  setGameType(state: State, type: GameTypeEnum) {
     state.gameType = type
   },
-  setGameTheme(state: any, theme: GameThemeEnum) {
+  setGameTheme(state: State, theme: GameThemeEnum) {
     state.gameTheme = theme
   },
-  setGameDifficulty(state:any,difficulty: GameDifficulty){
+  setGameDifficulty(state:State,difficulty: GameDifficulty){
     state.gameDifficulty = difficulty
   },
-  setCurrentLevel(state:any,level:LevelObj){
+  setCurrentLevel(state:State,level:LevelObj){
     state.currentLevel = level
   },
   setLevelList(state:any,payload:LevelObj[]){
