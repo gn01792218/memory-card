@@ -1,6 +1,6 @@
-import { LevelObj } from '@/types/game/game'
+import { LevelItemBase } from '@/types/game/game'
 import {GameThemeEnum} from '@/types/game/game'
-export interface MemoryCardLevel extends LevelObj{
+export interface MemoryCardLevel extends LevelItemBase {
     cardNum:number,
     timeCount:number,
 }

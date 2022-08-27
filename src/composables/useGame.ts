@@ -1,7 +1,7 @@
 import { toRaw } from "@vue/reactivity";
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { GameDifficulty, GameThemeEnum, GameTypeEnum } from '@/types/game/game'
+import { Game, GameDifficulty, GameThemeEnum, GameTypeEnum } from '@/types/game/game'
 import { MemoryCardLevel } from '@/types/game/memoryCard/memoryCard'
 export default function useGame() {
   //store
