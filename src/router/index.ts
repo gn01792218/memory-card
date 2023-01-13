@@ -14,6 +14,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/About.vue"),
   },
   {
+    path: "/BoardGameLoby",
+    name: "BoardGameLoby",
+    component: () => import("@/views/BoardGameLoby.vue"),
+  },
+  {
+    path: "/MemoryCardLoby",
+    name: "MemoryCardLoby",
+    component: () => import("@/views/MemoryCardLoby.vue"),
+  },
+  {
     path: "/MemoryCardGame",
     name: "MemoryCardGame",
     component: () => import("@/views/MemoryCardGame.vue"),
