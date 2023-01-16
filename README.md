@@ -13,5 +13,26 @@ Eslint、prettier
 ```
 npm run deploy-ghpage
 ```
+
+# 採坑紀錄
+## 子路由的坑
+### 1.子路由的動態載入問題
+不要使用@，用一般的路徑打包時才抓地到唷
+```
+{
+    path: "/BoardGameLobby",
+    name: "BoardGameLobby",
+    component: () => import("@/views/BoardGameLobby.vue"),
+    children:[
+      {
+        path:'BoardGameEightQueen',
+        name:'BoardGameEightQueen',
+        component: () => import("../views/BoardGameEightQueen.vue"),
+      },
+    ]
+  },
+```
+### 2.子路由打包後獲取的圖片資源，會在路徑中+上父層的url，導致無法讀取檔案
+目前未得解
   
   

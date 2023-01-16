@@ -1,8 +1,8 @@
 import {
   createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory,
 } from "vue-router";
-import BoardGameEightQueen from '@/views/BoardGameEightQueen.vue'
-import BoardGameMonstrt from '@/views/BoardGameMonstrt.vue'
+// import BoardGameEightQueen from '@/views/BoardGameEightQueen.vue'
+// import BoardGameMonstrt from '@/views/BoardGameMonstrt.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -22,12 +22,12 @@ const routes: Array<RouteRecordRaw> = [
       {
         path:'BoardGameEightQueen',
         name:'BoardGameEightQueen',
-        component: BoardGameEightQueen,
+        component: () => import("../views/BoardGameEightQueen.vue"),
       },
       {
         path:'BoardGameMonstrt',
         name:'BoardGameMonstrt',
-        component:BoardGameMonstrt,
+        component:() => import("../views/BoardGameMonstrt.vue"),
       }
     ]
   },
