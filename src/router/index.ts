@@ -15,9 +15,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/About.vue"),
   },
   {
-    path: "/BoardGameLoby",
-    name: "BoardGameLoby",
-    component: () => import("@/views/BoardGameLoby.vue"),
+    path: "/BoardGameLobby",
+    name: "BoardGameLobby",
+    component: () => import("@/views/BoardGameLobby.vue"),
     children:[
       {
         path:'BoardGameEightQueen',
@@ -32,9 +32,9 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: "/MemoryCardLoby",
-    name: "MemoryCardLoby",
-    component: () => import("@/views/MemoryCardLoby.vue"),
+    path: "/MemoryCardLobby",
+    name: "MemoryCardLobby",
+    component: () => import("@/views/MemoryCardLobby.vue"),
   },
   {
     path: "/MemoryCardGame",

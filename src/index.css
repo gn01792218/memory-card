@@ -20,7 +20,13 @@
 .perspective-1500{
     perspective: 1500px;
 }
-
+/* Component */
+.board {
+    @apply flex flex-col items-center
+}
+.board-col {
+    @apply w-[50px] h-[50px] border-2 bg-slate-500 hover:bg-slate-300 cursor-pointer
+}
 /* counter的CSS，暫時借放 */
 .counter{
     /* // overflow: hidden;

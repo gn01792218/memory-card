@@ -33,7 +33,7 @@ interface navItem {
 const navData = reactive<navItem[]>([
   { name: 'Home', path: '/' },
   { name: 'About', path: '/About' },
-  { name:'MemoryCardLoby',path:'/MemoryCardLoby' },
-  { name:'BoardGameLoby', path:'/BoardGameLoby' }
+  { name:'MemoryCardLobby',path:'/MemoryCardLobby' },
+  { name:'BoardGameLobby', path:'/BoardGameLobby' }
 ])
 </script>
