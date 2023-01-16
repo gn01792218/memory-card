@@ -9,10 +9,9 @@ The template uses Vue 3 `<script setup>` SFCs
 ## codingStyle
 Eslint、prettier
 
-## 專案結構
-dist--打包輸出的預設資料夾
-docd--給giHub pages的打包資料夾
-public--
-src-----
+## 打包部署
+```
+npm run deploy-ghpage
+```
   
   
