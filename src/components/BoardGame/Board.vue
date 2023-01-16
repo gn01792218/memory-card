@@ -23,6 +23,7 @@ import { MsgType } from '@/types/msg/msgBox'
 import useUtil from '@/composables/util/useUtil';
 import useMsg from '@/composables/useMsg'
 import MsgBox from '@/components/MsgBox.vue'
+
 interface BoardObj{
     size:number,
     openHint:boolean
