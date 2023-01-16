@@ -27,6 +27,19 @@
 .board-col {
     @apply w-[50px] h-[50px] border-2 bg-slate-500 hover:bg-slate-300 cursor-pointer
 }
+
+/* transition */
+.msg-enter-active,
+.msg-leave-active {
+    @apply transition-all duration-500 ease-in
+}
+.msg-enter-from{
+    @apply opacity-100 translate-y-[15px]
+}
+.msg-leave-to{
+    @apply opacity-50 translate-y-[0px]
+}
+
 /* counter的CSS，暫時借放 */
 .counter{
     /* // overflow: hidden;

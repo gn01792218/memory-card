@@ -1,5 +1,9 @@
 <template>
-    <section class="board">
+    <section class="board relative">
+        <MsgBox :msg-obj="{
+            transitionName:'msg',
+            msgArr:msgArray
+        }"/>
         <section class="flex"
         v-for="row in size" :key="row"
         >
@@ -15,7 +19,10 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive, nextTick, toRefs } from 'vue'
+import { MsgType } from '@/types/msg/msgBox'
 import useUtil from '@/composables/util/useUtil';
+import useMsg from '@/composables/useMsg'
+import MsgBox from '@/components/MsgBox.vue'
 interface BoardObj{
     size:number,
     openHint:boolean
@@ -23,22 +30,26 @@ interface BoardObj{
 const props = defineProps<BoardObj>()
 const { size, openHint } = toRefs( props )
 const { getAssetsFileURL } = useUtil()
+const { pushMsg, msgArray } = useMsg()
 
 const queensPosition = reactive<number[] | null[]>([])
 const count = ref(0)
 
 function isSafe(row:number,col:number){
     //判斷橫線 : 如果該行上已經有皇后，直接返回false
-    if( queensPosition[row] ) return false
+    if( queensPosition[row] ) {
+        pushMsg(msgArray.value,'不能再此行放皇后!',MsgType.ERROR)
+        return false
+    }
     for( let i=0 ; i< row ; i++ ){
         //判斷直線
         if( col ===  queensPosition[i]){
-            console.log('直線上有皇后')
+            pushMsg(msgArray.value,'直線上有其他皇后!',MsgType.ERROR)
             return false
         }
         //判斷X斜線
         if( Math.abs( col- queensPosition[i]!) === Math.abs(i - row)){
-            console.log('斜線上有皇后')
+            pushMsg(msgArray.value,'斜線上有其他皇后!',MsgType.ERROR)
             return false
         }
     }
@@ -79,7 +90,7 @@ function removeHint(row:number,col:number){ //當游標離開該格時，移除�
     if(!openHint.value) return 
 }
 function gameWin(){
-    alert('破解成功~!')
+    pushMsg(msgArray.value,'成功破解!',MsgType.SUCCESS)
 }
 
 </script>
