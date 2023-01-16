@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{o as t,b as o,e as s}from"./vendor.32c13e81.js";const c={},r={class:"w-full text-white"},_=s("h1",{class:"text-center"},"\u9019\u662F\u9996\u9801",-1),a=[_];function n(i,d){return t(),o("div",r,a)}var m=e(c,[["render",n]]);export{m as default};
