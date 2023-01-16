@@ -34,7 +34,7 @@ const { pushMsg, msgArray } = useMsg()
 
 const queensPosition = reactive<number[] | null[]>([])
 const count = ref(0)
-
+const queenImage = getAssetsFileURL('images/boardGame/queen.png')
 function isSafe(row:number,col:number){
     //判斷橫線 : 如果該行上已經有皇后，直接返回false
     if( queensPosition[row] ) {
@@ -57,7 +57,7 @@ function isSafe(row:number,col:number){
 }
 function getQueenImg(){
     const queenImg = document.createElement('IMG') as HTMLImageElement
-    queenImg.src = getAssetsFileURL('images/boardGame/queen.png')
+    queenImg.src = queenImage
     queenImg.classList.add('w-full')
     queenImg.classList.add('h-full')
     queenImg.classList.add('queen')
