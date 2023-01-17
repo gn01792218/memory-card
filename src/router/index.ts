@@ -1,8 +1,7 @@
 import {
   createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory,
 } from "vue-router";
-// import BoardGameEightQueen from '@/views/BoardGameEightQueen.vue'
-// import BoardGameMonstrt from '@/views/BoardGameMonstrt.vue'
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -18,11 +17,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/BoardGameLobby",
     name: "BoardGameLobby",
     component: () => import("@/views/BoardGameLobby.vue"),
-    children:[
+    children:[  //嵌套路由的動態引入不可以使用@
       {
         path:'BoardGameEightQueen',
         name:'BoardGameEightQueen',
-        component: () => import("../views/BoardGameEightQueen.vue"),
+        component: () => import("../views/BoardGameEightQueen.vue"),  
       },
       {
         path:'BoardGameMonstrt',
