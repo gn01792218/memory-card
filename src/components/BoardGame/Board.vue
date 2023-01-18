@@ -18,7 +18,7 @@
     </section>
 </template>
 <script setup lang="ts">
-import { ref, reactive, nextTick, toRefs } from 'vue'
+import { ref, reactive, nextTick, toRefs, watch } from 'vue'
 import { MsgType } from '@/types/msg/msgBox'
 import useUtil from '@/composables/util/useUtil';
 import useMsg from '@/composables/useMsg'
@@ -40,6 +40,9 @@ const { pushMsg, msgArray } = useMsg()
 const queensPosition = reactive<number[] | null[]>([])
 const count = ref(0)
 const queenImage = getAssetsFileURL('images/boardGame/queen.png')
+watch(size,()=>{
+    resetBoard()
+})
 function isSafe(row:number,col:number){
     //判斷橫線 : 如果該行上已經有皇后，直接返回false
     if( queensPosition[row] ) {
@@ -87,6 +90,7 @@ function placeQueen(row:number,col:number){
         colElement?.appendChild(getQueenImg())
         if(count.value === size.value) nextTick(()=>gameWin())
     }
+    console.log(count.value)
 }
 function horizontalHint(row:number,col:number,status:BoardHintStatus) {
     const rowElement = document.getElementById(`board-${row}`)
@@ -145,6 +149,15 @@ function removeHint(row:number,col:number){ //當游標離開該格時，移除�
 }
 function gameWin(){
     pushMsg(msgArray.value,'成功破解!',MsgType.SUCCESS,40,5000)
+}
+function resetBoard(){
+    count.value = 0
+    queensPosition.forEach((col,row) => {
+        queensPosition[row] = null
+        const colElement = document.getElementById(`board-${row}-${col}`)
+        const queenImg = colElement?.firstChild
+        if(queenImg)queenImg.remove()
+    })
 }
 
 </script>
