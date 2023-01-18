@@ -1,0 +1,1 @@
+import{d as u,G as e,o as t,b as o}from"./vendor.7d6fda9c.js";const s={class:"w-full text-white text-center"},_=u({setup(c){return e(),(n,r)=>(t(),o("div",s," \u68CB\u76E4\u602A\u7378\u5927\u6230\uFF0C\u5373\u5C07\u63A8\u51FA\uFF0C\u76E1\u8ACB\u671F\u5F85~!!!! "))}});export{_ as default};
