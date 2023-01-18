@@ -53,9 +53,11 @@ function isSafe(row:number,col:number){
             return false
         }
         //判斷X斜線
-        if( Math.abs( col- queensPosition[i]!) === Math.abs(i - row)){
-            pushMsg(msgArray.value,'斜線上有其他皇后!',MsgType.ERROR,20)
-            return false
+        if(queensPosition[i]) {
+            if( Math.abs( col- queensPosition[i]!) === Math.abs(i - row)){
+                pushMsg(msgArray.value,'斜線上有其他皇后!',MsgType.ERROR,20)
+                return false
+            }
         }
     }
     return true
