@@ -1,0 +1,1 @@
+import{d as e,E as t,o as u,b as o}from"./vendor.f604928f.js";const s={class:"w-full text-white text-center"},_=e({setup(c){return t(),(n,r)=>(u(),o("div",s," \u9019\u662F\u68CB\u76E4\u602A\u7378\u5927\u6230 "))}});export{_ as default};
