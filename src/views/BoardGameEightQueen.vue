@@ -6,7 +6,7 @@
                 PS.皇后的攻擊範圍是米字型
             </p>
         </header>
-        <section class="mb-5">
+        <section>
             <div class="mb-2">
                 <label class="mr-2">選擇棋盤Size</label>
                 <select class="text-black" v-model="boardSelectData.borderSize">
@@ -18,16 +18,15 @@
             </div>
             <div>
                 <span class="text-gray-400 mr-2">是否開啟提示?</span>
-                
                 <input type="radio" id="openHint" :value="true" v-model="openHint">
                 <label class="mr-2" for="openHint">是</label>
                 <input type="radio" id="openHint" :value="false" v-model="openHint">
                 <label for="openHint">否</label>
-                <p v-if="openHint" class="text-orange-300">提示的是該位置皇后的攻擊範圍，在其攻擊範圍內，不應有其他皇后</p>
-                <p v-if="openHint" class="text-orange-300">若攻擊範圍內有其他皇后，則不應該將皇后放在該位置上</p>
+                <p v-if="openHint" class="text-sm text-orange-300">提示的是該位置皇后的攻擊範圍，在其攻擊範圍內，不應有其他皇后</p>
+                <p v-if="openHint" class="text-sm text-orange-300">若攻擊範圍內有其他皇后，則不應該將皇后放在該位置上</p>
             </div>
         </section>
-        <Board :size="boardSelectData.borderSize" :open-hint="openHint"/>
+        <Board class="mb-10" :size="boardSelectData.borderSize" :open-hint="openHint"/>
     </main>
 </template>
 <script setup lang="ts">
