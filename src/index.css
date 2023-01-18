@@ -11,6 +11,9 @@
 .active {
     @apply assent-text-color border-2
 }
+.active-boardGame {
+    @apply assent-text-color border-b-2
+}
 /* 特殊CSS Util */
 .backface-hidden{
     backface-visibility: hidden;
