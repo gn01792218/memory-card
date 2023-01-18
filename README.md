@@ -32,7 +32,20 @@ npm run deploy-ghpage
     ]
   },
 ```
-### 2.子路由打包後獲取的圖片資源，會在路徑中+上父層的url，導致無法讀取檔案
-目前未得解
+### 2.子路由打包後無法獲取的圖片資源
+原因是其打包路徑，會被+上父層的url，導致無法讀取檔案，<br>
+例如你的圖片檔案位於 "BoardGameLobby/BoardGameEightQueen" 這個子路由下，<br>
+在本地時，一切都是正常的，但打包後會被加上BoardGameLobby，<br>
+```javascript
+
+//src local時顯示
+	'http://localhost:3000/src/assets/images/boardGame/queen.png'
+
+//打包後，會多+上層路由，導致抓不到assets圖片
+  'https://gn01792218.github.io/memory-card/BoardGameLobby/assets/queen.71b8d728.png'
+
+```
+
+解決方法 : 將路由改成# 模式，就可以抓地到
   
   

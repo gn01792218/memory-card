@@ -3,6 +3,7 @@
       <transition-group :name="msgObj.transitionName">
         <li
           :class="[
+            `text-[${msg.fontSize}px]`,
             { 'text-red-600': msg.type === MsgType.ERROR },
             { 'text-yellow-500': msg.type === MsgType.SUCCESS },
           ]"

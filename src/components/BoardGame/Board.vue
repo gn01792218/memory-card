@@ -39,18 +39,18 @@ const queenImage = getAssetsFileURL('images/boardGame/queen.png')
 function isSafe(row:number,col:number){
     //判斷橫線 : 如果該行上已經有皇后，直接返回false
     if( queensPosition[row] ) {
-        pushMsg(msgArray.value,'不能再此行放皇后!',MsgType.ERROR)
+        pushMsg(msgArray.value,'此行不能放皇后!',MsgType.ERROR,20)
         return false
     }
     for( let i=0 ; i< row ; i++ ){
         //判斷直線
         if( col ===  queensPosition[i]){
-            pushMsg(msgArray.value,'直線上有其他皇后!',MsgType.ERROR)
+            pushMsg(msgArray.value,'直線上有其他皇后!',MsgType.ERROR,20)
             return false
         }
         //判斷X斜線
         if( Math.abs( col- queensPosition[i]!) === Math.abs(i - row)){
-            pushMsg(msgArray.value,'斜線上有其他皇后!',MsgType.ERROR)
+            pushMsg(msgArray.value,'斜線上有其他皇后!',MsgType.ERROR,20)
             return false
         }
     }
