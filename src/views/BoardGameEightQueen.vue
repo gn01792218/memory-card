@@ -17,10 +17,11 @@
             </div>
             <div>
                 是否開啟提示?
-                <input type="radio" id="openHint" :value="false" v-model="openHint">
-                <label for="openHint">是</label>
                 <input type="radio" id="openHint" :value="true" v-model="openHint">
+                <label for="openHint">是</label>
+                <input type="radio" id="openHint" :value="false" v-model="openHint">
                 <label for="openHint">否</label>
+                <p v-if="openHint" class="text-orange-300">提示的是皇后攻擊範圍，在其攻擊範圍內，有其他皇后的話，表示不能放在該位置</p>
             </div>
         </section>
         <Board :size="boardSelectData.borderSize" :open-hint="openHint"/>
@@ -41,7 +42,7 @@ const boardSelectData = ref({
         { text:'8 X 8', value:8 },
     ]
 })
-const openHint = ref(true)
+const openHint = ref(false)
 
 
 </script>

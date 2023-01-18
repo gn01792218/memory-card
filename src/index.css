@@ -27,6 +27,9 @@
 .board-col {
     @apply w-[50px] h-[50px] border-2 bg-slate-500 hover:bg-slate-300 cursor-pointer
 }
+.board-hint {
+    @apply bg-orange-300
+}
 
 /* transition */
 .msg-enter-active,

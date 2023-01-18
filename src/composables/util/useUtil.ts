@@ -3,11 +3,7 @@ export default function useUtil (){
         return Math.floor(Math.random()*(max-min)+min)
     }
     function getAssetsFileURL(url:string){
-        let Url = new URL(`../../assets/${url}`,import.meta.url).href
-        console.log('傳入url字串',url)
-        console.log('meta.url',import.meta.url)
-        console.log('最終輸出的URL',Url)
-        return Url
+        return new URL(`../../assets/${url}`,import.meta.url).href
     }
     function getEnumValueList<T>(enumType:T){
         return Object.keys(enumType).filter(key=>isNaN(Number(key)))
