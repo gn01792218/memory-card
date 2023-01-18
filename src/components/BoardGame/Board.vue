@@ -46,7 +46,7 @@ function isSafe(row:number,col:number){
         pushMsg(msgArray.value,'此行不能放皇后!',MsgType.ERROR,20)
         return false
     }
-    for( let i=0 ; i< row ; i++ ){
+    for( let i=0 ; i< size.value ; i++ ){
         //判斷直線
         if( col ===  queensPosition[i]){
             pushMsg(msgArray.value,'直線上有其他皇后!',MsgType.ERROR,20)
