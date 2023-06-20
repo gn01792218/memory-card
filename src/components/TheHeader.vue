@@ -34,6 +34,7 @@ const navData = reactive<navItem[]>([
   { name: 'Home', path: '/' },
   { name: 'About', path: '/About' },
   { name:'MemoryCardLobby',path:'/MemoryCardLobby' },
-  { name:'BoardGameLobby', path:'/BoardGameLobby' }
+  { name:'BoardGameLobby', path:'/BoardGameLobby' },
+  { name: 'Ai Game', path:'/AIGameLobby'}
 ])
 </script>

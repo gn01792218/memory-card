@@ -47,5 +47,8 @@ npm run deploy-ghpage
 ```
 
 解決方法 : 將路由改成# 模式，就可以抓地到
+
+## 敏感訊息
+VITE_KIDSGAME_OPENAI_KEY
   
   

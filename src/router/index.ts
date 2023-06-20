@@ -31,6 +31,18 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path:"/AIGameLobby",
+    name:"AIGameLobby",
+    component: () => import("@/views/AIGame/AIGameLobby.vue"),
+    children:[
+      {
+        path:'PictoRiddle',
+        name:'PictoRiddle',
+        component:() => import("@/views/AIGame/PictoRiddle.vue")
+      }
+    ]
+  },
+  {
     path: "/MemoryCardLobby",
     name: "MemoryCardLobby",
     component: () => import("@/views/MemoryCardLobby.vue"),
