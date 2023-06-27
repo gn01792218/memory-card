@@ -1,5 +1,8 @@
 <template>
     <main class="w-full text-white text-center">
+      <p class="mb-10">
+        選擇遊戲
+      </p>
       <nav class="mb-5">
         <ul class="flex justify-center">
           <li class="mr-5 text-gray-300 hover:text-gray-500" :class="[{'active-boardGame':currentBoardGame === 'BoardGameMonstrt'}]" @click="currentBoardGame = 'BoardGameMonstrt'"> <router-link to="/BoardGameLobby/BoardGameMonstrt">棋盤怪獸大戰</router-link> </li>

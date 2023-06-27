@@ -18,6 +18,7 @@ export const state = {
   currentLevel:{}, //當前關卡物件
   levelList:{}, //關卡物件陣列
   memoryCardListObj: {}, //翻翻記憶卡牌陣列
+  gameSoundMouted:false,
 }
 export const actions = {}
 
